@@ -13,7 +13,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="./resources/cover.css" rel="stylesheet">
   </head>
 
   <body class="text-center">
@@ -22,30 +22,49 @@
       <header class="masthead mb-auto">
         <div class="inner">
           <h3 class="masthead-brand">Daniel Profili
-		  		  <img src="intel.png" class="img-fluid">
-		  <img src="modsim.png" class="img-fluid">
-</h3>
+		  <!--<img src="intel.png" class="img-fluid">
+		  <img src="modsim.png" class="img-fluid"> -->
+		</h3>
           <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link active" href="#">Home</a>
             <a class="nav-link" href="./DanielProfiliResume.pdf">Resume</a>
-            <a class="nav-link" href="#">Contact</a>
+			<a class="nav-link" href="./coolstuff.html">Cool Stuff</a>
+			<a class="nav-link" href="mailto:dprofili@gmail.com" target="_blank"><img class="img-fluid" src="./resources/email.png" height="27" width="27" alt="Email"></a>
+
+			<a class="nav-link" href="https://github.com/danielprofili" target="_blank"><img class="img-fluid" src="./resources/github_small.png" height="27" width="27" alt="Github"></a>
+			<a class="nav-link" href="https://www.linkedin.com/in/danielprofili/" target="_blank"><img class="img-fluid" src="./resources/linkedin_small.png" height="27" width="27" alt="Linkedin"></a>
+
           </nav>
         </div>
       </header>
 
       <main role="main" class="inner cover">
-		<img src="./portrait_cropped.jpg" class="img-fluid rounded-circle p-5"style="height:60%;width:60%;">
+		<img src="./resources/portrait_cropped.jpg" class="img-fluid rounded-circle p-5" style="height:60%;width:60%;">
         <h1 class="cover-heading">Daniel Profili</h1>
 		<h4 class="cover-heading">This is a test</h4>
-        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-        <p class="lead">
-          <a href="#" class="btn btn-lg btn-secondary">Learn more</a>
+        <p class="lead">Subtitle</p>
+<!--        <p class="lead">
+          <a href="#" class="btn btn-lg btn-secondary">Learn more</a> -->
         </p>
+		<p>This is the main body</p>
+		<!--
+<button type="button" 
+		class="btn btn-lg" 
+		data-placement="bottom" 
+		data-toggle="popover" 
+		data-html="true"
+		title="Drop me a line!"
+		data-content="<ul><li><b>Email: </b><a class=&quot;popover-text&quot; href=&quot;mailto:dprofili@gmail.com&quot;>dprofili@gmail.com</a><li><b>Linkedin: </b></ul>">
+		
+		Contact me!</button>
+
+		-->
+
       </main>
 
       <footer class="mastfoot mt-auto">
         <div class="inner">
-          <p>&copy; 2018. Styles by <a href="https://getbootstrap.com/">Bootstrap</a>, icons by <a href="http://www.flaticon.com">Freepik</a>.</p>
+          <p><small>&copy; 2018. Styles by <a href="https://getbootstrap.com/">Bootstrap</a>, icons by <a href="http://www.flaticon.com">Freepik</a>.</small></p>
         </div>
       </footer>
     </div>
@@ -56,7 +75,21 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+	<script>
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover(); 
+});
+</script>
+<style>
+.popover-header {
+	color: black;
+}
+a.popover-text {
+	color: #0066ff
+;
+}
+</style>
   </body>
 </html>
