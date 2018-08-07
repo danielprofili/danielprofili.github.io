@@ -60,10 +60,15 @@ body {
 
 .nav-masthead .nav-link {
     padding: .25rem 0;
-    font-weight: 700;
+    /* font-weight: 700; */
     color: rgba(255, 255, 255, .5);
     background-color: transparent;
     border-bottom: .25rem solid transparent;
+}
+
+.nav-item.nav-link.fab, .nav-item.nav-link.far {
+    font-size: 27px;
+    color: white;
 }
 
 .nav-masthead .nav-link:hover, .nav-masthead .nav-link:focus {
