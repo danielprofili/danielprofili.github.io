@@ -32,6 +32,13 @@ html, body {
     background-repeat: no-repeat;
 }
 
+#portrait {
+    display: block;
+    margin: 0 auto;
+    border-radius: 35% !important;
+    /* margin-top: 120px; */
+}
+
 html {}
 
 body {
@@ -43,7 +50,8 @@ body {
 }
 
 .cover-container {
-    max-width: 42em;
+    /* max-width: 42em; */
+    max-width: 85%;
 }
 
 /*
@@ -89,13 +97,20 @@ body {
         float: left;
     }
     .nav-masthead {
-        float: right;
+        /* float: right; */
     }
 }
 
-.nav-item .far .fab {
+.nav-item .far :not(a), .nav-item .fab {
     font-size: 27px !important;
+    /* color: white; */
 }
+
+/* Reminder: use <i>s for icons in buttons, and <a>s for icons as buttons */
+/* i.far, i.fab {
+    padding: 20px;
+    font-size: 100%;
+} */
 
 /*
  * Cover
