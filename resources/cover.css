@@ -1,3 +1,9 @@
+/*  
+    Based on Bootstrap's Cover template
+    modified by Daniel Profili
+*/
+
+
 /*
  * Globals
  */
@@ -36,10 +42,38 @@ html, body {
     display: block;
     margin: 0 auto;
     border-radius: 35% !important;
+    /* height: 50%; */
+    max-height: 20rem;
     /* margin-top: 120px; */
+    vertical-align: middle;
 }
 
-html {}
+/* Aligns the carousel captions to the top instead of the bottom
+Used for the project carousel because of inconveniently colored images */
+#projects-carousel .carousel-caption {
+    top: 0;
+    bottom: auto;
+}
+
+/* Does the same with the indicators, but with a 0.5em spacing from the top */
+#projects-carousel .carousel-indicators {
+    top: 0.5em;
+    bottom: auto;
+}
+
+h1.main-heading {
+    font-size: 10rem;
+    text-shadow: 5px 5px 50px #000000;
+    box-shadow: #fff;
+    /* margin-bottom: 6vh; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container h1 {
+    vertical-align: center;
+}
 
 body {
     display: -ms-flexbox;
@@ -98,12 +132,19 @@ body {
     }
     .nav-masthead {
         /* float: right; */
+        width: 100%;
+        max-width: 80em;
     }
 }
 
-.nav-item .far :not(a), .nav-item .fab {
+.nav-item .far+.fab {
     font-size: 27px !important;
     /* color: white; */
+}
+
+.carousel {
+    width: 50%;
+    margin: auto;
 }
 
 /* Reminder: use <i>s for icons in buttons, and <a>s for icons as buttons */
