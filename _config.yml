@@ -1,2 +1,4 @@
-theme: minima
-show_downloads: ["false"]
+theme: jekyll-theme-dinky
+show_downloads: "false"
+title: "Daniel Profili"
+description: ""
