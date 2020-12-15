@@ -2,3 +2,7 @@
 ---
 
 @import "{{ site.theme }}";
+.downloads li {
+    width: 134px;
+    border-right: none !important;
+}
