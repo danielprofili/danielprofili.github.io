@@ -1,4 +1,5 @@
-# CS 1371 Computing for Engineers
+# Teaching
+## CS 1371 Computing for Engineers
 
 From August 2017 to December 2018 I was a TA for
 [CS1371](https://cs1371.gatech.edu) at Georgia Tech.
