@@ -2,10 +2,14 @@
 theme: minima
 show_downloads: false
 title: Daniel Profili
+author:
+  name: Daniel Profili
+  email: "dprofili at protonmail dot com"
 description: Homepage
 logo: assets/profile_sq.png
 minima:
   date_format: "%b %-d, %Y"
+  skin: dark
 
   # generate social links in footer
   social_links:
