@@ -37,7 +37,9 @@ Below is an example resultant computed using
 [SageMath](https://www.sagemath.org). Here, we define
 
 $$p_1 = a_{11}x_1 + a_{12}x_2 + a_{13}$$
+
 $$p_2 = a_{21}x_1 + a_{22}x_2 + a_{23}$$
+
 $$p_1 = a_{31}x_1 + a_{32}x_2 + a_{33}$$
 
 which live in $$\mathbb{Z}[x_1, x_2]$$, and compute the generator of
