@@ -1,11 +1,9 @@
-# Research
-
-## Tropical resultants
+# Tropical resultants
 
 Suppose we have polynomials $$f_1, \dots, f_n \in \mathbb{C}[x_1,
 \dots, x_m],$$ each of the form
 
-$$f_i = b_{i, 1} x_1^{a_{i,1}} + \dots + b_{i, m} x_m^{a_{i, m}},,$$
+$$f_i = b_{i, 1} x_1^{a_{i,1}} + \dots + b_{i, m} x_m^{a_{i, m}},$$
 
 where $$b_{i,k} \in \mathbb{C}$$ and $$a_{i, k} \in \mathbb{Z}.$$ What
 can we say about the choices of coefficients $$b_{i,k}$$ which satisfy
@@ -35,4 +33,4 @@ the corresponding elimination ideal.
 
 <script src="https://gist.github.com/danielprofili/0e7df987e0f86b290edc6db38da4d9a0.js"></script>
 
-## Sampling of strong orientations
+# Sampling of strong orientations
