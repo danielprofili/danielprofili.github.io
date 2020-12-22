@@ -1,4 +1,5 @@
-theme: jekyll-theme-minimal
+#theme: jekyll-theme-minimal
+theme: minima
 show_downloads: false
 title: Daniel Profili
 description: Homepage
