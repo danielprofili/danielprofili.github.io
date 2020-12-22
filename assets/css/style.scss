@@ -2,6 +2,10 @@
 ---
 
 @import "{{ site.theme }}";
+
+@import "minima/skins/{{ site.minima.skin | default: 'classic' }}";
+@import "minima/initialize";
+
 .downloads li {
     width: 134px;
     border-right: none !important;
