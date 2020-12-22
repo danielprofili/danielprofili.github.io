@@ -1,5 +1,3 @@
-# Research
-
 ## Tropical resultants
 
 Suppose we have polynomials $$f_1, \dots, f_n \in \mathbb{C}[x_1,
