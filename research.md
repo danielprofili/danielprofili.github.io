@@ -1,5 +1,7 @@
 # Research
 
+My research interests are in algebraic geometry, number theory, and combinatorics.
+
 ## Tropical resultants
 
 ### Resultant polytopes
@@ -21,9 +23,10 @@ only if the $$b_{i, j}$$'s satisfy $$f_1 = \dots = f_n = 0$$.
 The resultant is readily computed by calculating the elimination ideal
 (e.g. by Groebner basis) the ideal $$I = (f_1, \dots, f_n)$$ generated
 by the polynomials. The generator of the elimination ideal is
-precisely the resultant. 
+precisely the resultant; however, in general, this operation is very
+slow as computing Groebner bases is computationally intensive.
 
-Below is an example resultant computed using
+Below is a simple example resultant computed using
 [SageMath](https://www.sagemath.org). Here, we define
 
 $$p_1 = a_{11}x_1 + a_{12}x_2 + a_{13}$$
@@ -69,5 +72,33 @@ $$\log(x + y) \approx \min(\log x, \log y) \text{ and}$$
 
 $$\log(xy) = \log x + \log y.$$ 
 
+An important fact to note is that these definitions satisfy all but
+one of the ring axioms; i.e. the set $$\mathbb{R} \cup \infty$$ is an
+abelian group under $$\oplus$$, the $$\otimes$$ operation
+distributes and is associative, and $$\infty$$ acts as the additive
+identity or "zero." The only missing axiom is the presence of additive
+inverses; for instance, there is no element $$y$$ such that $$\min(5, y) = \infty$$.
+
+The tropical semiring induces a mechanism by which we can
+"linearlize" polynomials. For example, the tropical projection of
+
+$$p(x) = x^5 + x^2 + 2x + 10$$
+
+is
+
+$$\mathcal{T}(p(x)) = (x \otimes \dots \otimes x) \oplus (x \otimes x)
+\oplus (2 \otimes x) \oplus 10 =
+\min(2x, 5x, 2+x, 10).$$
+
+<script src="https://gist.github.com/danielprofili/edb4bf030d2ae6adeeed9ba4b76f028a.js"></script>
+
+As we can see, plotting the tropical curve results in a
+concave, piecewise linear function (note that if we use the maximum instead of
+the minimum, we get a convex function instead). The points where the
+piecewise components join together are called *roots*; equivalently,
+these are the points at which the minimum of the tropical polynomial
+is achieved more than once. The number of times the minimum value is
+achieved is called the *order* of the root, and this is equal to the
+difference in neighboring slopes at each root point.
 
 # Sampling of strong orientations
