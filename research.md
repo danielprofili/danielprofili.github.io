@@ -122,3 +122,29 @@ resultants, it may be possible to deduce properties of the resultant
 polynomial with much less computational effort.
 
 # Sampling of strong orientations
+
+Let $$G = (V, E)$$ be a strongly connected directed graph with $$|V| =
+n$$ and $$|E| = m$$. An
+*orientation* $$\mathcal{O}$$ of $$G$ is a particular assignment of
+edge directions. Define for each vertex $$v_i \in V$$
+
+$$\alpha_i = \text{indeg}(v_i) - \text{outdeg}(v_i).$$
+
+If we define $$\alpha = (\alpha_1, \dots, \alpha_{n})$$ then we say
+that $$\mathcal{O}$$ is an $$\alpha$$-orientation of $$G$$. Clearly,
+every orientation $$\mathcal{O}$$ of $$G$$ has some $$\alpha \in \mathbb{Z}^n$$ such
+that $$\mathcal{O}$$ is an $$\alpha$$-orientation of $$G$; thus the
+mapping of orientations to $$\alpha$$'s induces an equivalence
+relation on the set of all orientations of $$G$$.
+
+It is a basic fact that any orientation can be transformed into any
+other orientation via a sequence of *directed cycle
+reversals*. Further, directed cycle reversals do not change the
+$$\alpha$$ of a particular orientation, so the equivalence classes
+under directed cycle reversals are the same as the equivalence classes
+under the mapping from $$\mathcal{O} \mapsto \alpha(\mathcal{O})$$.
+
+A *strong orientation* of a graph $$G$$ is an orientation such that
+there exists a directed path from any vertex to any other vertex. From
+this discussion, we can ask the following question: how can we
+uniformly sample strong orientations of graphs?
