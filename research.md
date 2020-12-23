@@ -2,6 +2,8 @@
 
 ## Tropical resultants
 
+### Resultant polytopes
+
 Suppose we have polynomials $$f_1, \dots, f_n \in \mathbb{C}[x_1,
 \dots, x_m],$$ each of the form
 
@@ -30,9 +32,42 @@ $$p_2 = a_{21}x_1 + a_{22}x_2 + a_{23}$$
 
 $$p_1 = a_{31}x_1 + a_{32}x_2 + a_{33}$$
 
-which live in $$\mathbb{Z}[x_1, x_2]$$, and compute the generator of
-the corresponding elimination ideal.
+which live in the ring $$\mathbb{Q}[x_1, x_2]$$, and compute the generator of
+the corresponding elimination ideal of $$I$$ with respect to $$x_1$$ and $$x_2$$.
 
 <script src="https://gist.github.com/danielprofili/0e7df987e0f86b290edc6db38da4d9a0.js"></script>
+
+The last line, `resultant.newton_polytope()`, computes the *Newton
+polytope* of the resultant, which is defined as the convex hull of the
+exponent vectors of the resultant polynomial. (By exponent vectors, we
+mean the ordered tuples of integers whose $$i$$th entry is the exponent of
+$$x_i$$ in any particular monomial.)
+
+The Newton polytope is useful not only because it is a way to
+visualize a polynomial, but it also provides a link to the powerful
+tools of algebraic and tropical geometry. As it turns out, there is a
+bijection between the number of vertices of the Newton polytope of the
+resultant and the number of arrangements of so-called *tropical
+hypersurfaces* corresponding to the original polynomials. 
+
+### Tropical geometry
+
+Tropical geometry is the study of the tropical semiring, which is
+usually defined as $$\mathcal{T} = (\mathbb{R} \cup \{+\infty\},
+\oplus, \otimes)$$ where the ring operations are defined by
+
+$$x \oplus y = \min(x, y)$$
+
+$$x \otimes y = x + y.$$
+
+Equivalently, we can substitute $$-\infty$$ and define $$x \oplus y =
+\max(x, y).$$ Under this interpretation, the tropical semiring can be
+thought of as a projection of the real numbers onto the logarithm
+function, using the fact that 
+
+$$\log(x + y) \approx \min(\log(x, y))$$ (for large $$x$$, $$y$$) and
+
+$$\log(xy) = x + y.$$ 
+
 
 # Sampling of strong orientations
