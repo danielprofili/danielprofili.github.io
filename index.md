@@ -5,10 +5,10 @@
 </figure>
 # About
 
-I am a fifth year undergraduate student at Georgia Tech, majoring in
-mathematics and computer science.
+My name is Daniel Profili, and I am a fifth year undergraduate student
+at Georgia Tech with majors in mathematics and computer science.
 
-## Contact
+# Contact
 
 You can reach me at `dprofili3 at gatech dot edu` or `dprofili at
 protonmail dot com`.
