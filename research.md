@@ -133,7 +133,7 @@ $$\alpha_i = \text{indeg}(v_i) - \text{outdeg}(v_i).$$
 If we define $$\alpha = (\alpha_1, \dots, \alpha_{n})$$ then we say
 that $$\mathcal{O}$$ is an $$\alpha$$-orientation of $$G$$. Clearly,
 every orientation $$\mathcal{O}$$ of $$G$$ has some $$\alpha \in \mathbb{Z}^n$$ such
-that $$\mathcal{O}$$ is an $$\alpha$$-orientation of $$G$; thus the
+that $$\mathcal{O}$$ is an $$\alpha$$-orientation of $$G$$; thus the
 mapping of orientations to $$\alpha$$'s induces an equivalence
 relation on the set of all orientations of $$G$$.
 
