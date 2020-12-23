@@ -68,7 +68,7 @@ Equivalently, we can substitute $$-\infty$$ and define $$x \oplus y =
 thought of as a projection of the real numbers under the logarithm map, 
 using the fact that for $$x$$ and $$y$$ sufficiently far apart we have
 
-$$\log(x + y) \approx \min(\log x, \log y) \text{ and}$$
+$$\log(x + y) \approx \log \max(x, y) \text{ and}$$
 
 $$\log(xy) = \log x + \log y.$$ 
 
