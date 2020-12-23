@@ -1,4 +1,7 @@
-<img id="logo" src="./assets/profile_sq.png" />
+<figure class="image">
+  <img id="logo" src="./assets/profile_sq.png" alt="Profile picture">
+  <figcaption>circa May 2020, ft. quarantine beard and haircut</figcaption>
+</figure>
 
 # About
 
