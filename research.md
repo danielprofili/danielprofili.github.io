@@ -101,4 +101,24 @@ is achieved more than once. The number of times the minimum value is
 achieved is called the *order* of the root, and this is equal to the
 difference in neighboring slopes at each root point.
 
+The last line prints the Newton polytope of the original
+polynomial. If you look closely, you'll see that the slopes of the
+edges of the polytope are inverses of the slopes of the tropical
+curve---put precisely, the tropical curve can be identified with the
+*normal fan* of the polytope. Here is where the connection between
+tropical geometry and resultants shines through: it is much easier to
+deal with minima and sums than it is to deal with multiplication,
+addition, and exponentiation, so if we can think about tropical
+curves, we might be able to speed up resultant computations and avoid
+Groebner basis calculations altogether.  
+
+This connection forms the basis of this project. My co-advisor
+Dr. Josephine Yu [proved](https://arxiv.org/pdf/1109.2368v1.pdf) that
+the tropical resultant of a set of polynomials can be computed in
+polynomial time, which is a huge improvement over the exponential
+running time of Buchberger's algorithm for computing Groebner bases.
+Thus, if we can come up with ways to cleverly manipulate tropical
+resultants, it may be possible to deduce properties of the resultant
+polynomial with much less computational effort.
+
 # Sampling of strong orientations
