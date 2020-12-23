@@ -125,7 +125,7 @@ polynomial with much less computational effort.
 
 Let $$G = (V, E)$$ be a strongly connected directed graph with $$|V| =
 n$$ and $$|E| = m$$. An
-*orientation* $$\mathcal{O}$$ of $$G$ is a particular assignment of
+*orientation* $$\mathcal{O}$$ of $$G$$ is a particular assignment of
 edge directions. Define for each vertex $$v_i \in V$$
 
 $$\alpha_i = \text{indeg}(v_i) - \text{outdeg}(v_i).$$
