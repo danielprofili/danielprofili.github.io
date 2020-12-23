@@ -62,12 +62,12 @@ $$x \otimes y = x + y.$$
 
 Equivalently, we can substitute $$-\infty$$ and define $$x \oplus y =
 \max(x, y).$$ Under this interpretation, the tropical semiring can be
-thought of as a projection of the real numbers onto the logarithm
-function, using the fact that 
+thought of as a projection of the real numbers under the logarithm map, 
+using the fact that for $$x$$ and $$y$$ sufficiently far apart we have
 
-$$\log(x + y) \approx \min(\log(x, y))$$ (for large $$x$$, $$y$$) and
+$$\log(x + y) \approx \min(\log x, \log y) \text{ and}$$
 
-$$\log(xy) = x + y.$$ 
+$$\log(xy) = \log x + \log y.$$ 
 
 
 # Sampling of strong orientations
