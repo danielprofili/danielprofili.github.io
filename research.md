@@ -82,13 +82,13 @@ inverses; for instance, there is no element $$y$$ such that $$\min(5, y) = \inft
 The tropical semiring induces a mechanism by which we can
 "linearlize" polynomials. For example, the tropical projection of
 
-$$p(x) = x^5 + x^2 + 2x + 10$$
+$$p(x, y) = x^2 + y^5 + 2xy + 10$$
 
 is
 
-$$\mathcal{T}(p(x)) = (x \otimes \dots \otimes x) \oplus (x \otimes x)
-\oplus (2 \otimes x) \oplus 10 =
-\min(2x, 5x, 2+x, 10).$$
+$$\mathcal{T}(p(x)) = (x^{\otimes 2}) \oplus (y^{\otimes 5})
+\oplus (2 \otimes x \otimes y) \oplus 10 =
+\min(2x, 5y, 2+x+y, 10).$$
 
 <script src="https://gist.github.com/danielprofili/edb4bf030d2ae6adeeed9ba4b76f028a.js"></script>
 
