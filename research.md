@@ -114,7 +114,7 @@ Groebner basis calculations altogether.
 
 This connection forms the basis of this project. My co-advisor
 Dr. Josephine Yu [proved](https://arxiv.org/pdf/1109.2368v1.pdf) that
-the tropical resultant of a set of polynomials can be computed in
+some characteristics of the tropical resultant of a set of polynomials can be computed in
 polynomial time, which is a huge improvement over the exponential
 running time of Buchberger's algorithm for computing Groebner bases.
 Thus, if we can come up with ways to cleverly manipulate tropical
