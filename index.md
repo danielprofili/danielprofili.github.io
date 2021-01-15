@@ -1,7 +1,7 @@
 <figure class="image">
   <img id="logo" src="./assets/profile_sq.png" alt="Profile picture">
   <figcaption style="text-align: center; margin-block: 20px;
-  font-variant: all-small-caps">circa May 2020, ft. quarantine beard and (lack of) haircut</figcaption>
+  font-variant: all-small-caps">circa May 2020</figcaption>
 </figure>
 # About
 
