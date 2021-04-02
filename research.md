@@ -4,7 +4,7 @@ My research interests are in algebraic geometry, number theory, and combinatoric
 
 ## Tropical resultants
 
-### [Resultant polytopes]{https://github.com/danielprofili/resultant-fvectors}
+### [Resultant polytopes](https://github.com/danielprofili/resultant-fvectors)
 
 Suppose we have polynomials $$f_1, \dots, f_n \in \mathbb{C}[x_1,
 \dots, x_m],$$ each of the form
