@@ -24,7 +24,7 @@ The resultant is readily computed by calculating the elimination ideal
 (e.g. by Groebner basis) the ideal $$I = (f_1, \dots, f_n)$$ generated
 by the polynomials. The generator of the elimination ideal is
 precisely the resultant; however, in general, this operation is very
-slow as computing Groebner bases is computationally intensive.
+slow as computing Groebner bases is computationally intensive (in both a theoretical sense and a practical sense: Buchberger's algorithm, [the primary method for computing Groebner bases](https://en.wikipedia.org/wiki/Faug%C3%A8re%27s_F4_and_F5_algorithms), runs in about double-exponential time and computing resultants in quantities in the thousands in Sage without parallelism takes a modest computer anywhere from hours to days).
 
 Below is a simple example resultant computed using
 [SageMath](https://www.sagemath.org). Here, we define
@@ -120,6 +120,9 @@ running time of Buchberger's algorithm for computing Groebner bases.
 Thus, if we can come up with ways to cleverly manipulate tropical
 resultants, it may be possible to deduce properties of the resultant
 polynomial with much less computational effort.
+
+Our main result is a collection of unique $$f$$-vectors sampled randomly and computed using tropical resultants of hypersurfaces much more quickly than is possible using Faugère's F4 and F5-type algorithms. Quantitatively: using Gfan and Python multiprocessing on a modern 16-core processor, over 100,000 four-dimensional resultants were computed in just over 9 hours; the same task using non-tropical methods could easily take several days or more. 
+With these datasets comes several conjectures about the maximal structure of $$f$$-vectors of resultant polytopes in four and five dimensions.
 
 # Sampling of strong orientations
 
