@@ -6,7 +6,7 @@
 # About
 
 My name is Daniel Profili, and I am a fifth year undergraduate student
-at Georgia Tech with majoring in mathematics and computer science.
+at Georgia Tech majoring in mathematics and computer science.
 
 # Contact
 
