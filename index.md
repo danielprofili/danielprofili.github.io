@@ -6,10 +6,13 @@
 # About
 
 My name is Daniel Profili, and I am a fifth year undergraduate student
-at Georgia Tech with majors in mathematics and computer science.
+at Georgia Tech with majoring in mathematics and computer science.
 
 # Contact
 
 You can reach me at `dprofili3 at gatech dot edu` or `dprofili at
 protonmail dot com`.
 
+# Research
+
+I'm interested in algebraic geometry and number theory, particularly when computers are involved. My undergraduate thesis was about the combinatorial structure of certain polytopes in 4 and 5 dimensions, which you can read about [here](https://danielprofili.github.io/research.html).
