@@ -121,7 +121,7 @@ Thus, if we can come up with ways to cleverly manipulate tropical
 resultants, it may be possible to deduce properties of the resultant
 polynomial with much less computational effort.
 
-Our main result is a collection of unique $$f$$-vectors sampled randomly and computed using tropical resultants of hypersurfaces much more quickly than is possible using Faugère's F4 and F5-type algorithms. Quantitatively: using Gfan and Python multiprocessing on a modern 16-core processor, over 100,000 four-dimensional resultants were computed in just over 9 hours; the same task using non-tropical methods could easily take several days or more. 
+Our main result is a collection of unique $$f$$-vectors sampled randomly and computed using tropical resultants of hypersurfaces much more quickly than is possible using Faugère's F4 and F5-type algorithms. Quantitatively: using Gfan and Python multiprocessing on a modern 16-core processor, over 1,000,000 four-dimensional resultants were computed in just over 9 hours; the same task using non-tropical methods could easily take several days or more. 
 With these datasets comes several conjectures about the maximal structure of $$f$$-vectors of resultant polytopes in four and five dimensions.
 
 # Sampling of strong orientations
