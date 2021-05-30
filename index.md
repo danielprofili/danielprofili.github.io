@@ -5,12 +5,11 @@
 </figure>
 # About
 
-My name is Daniel Profili, and I am a fifth year undergraduate student
-at Georgia Tech majoring in mathematics and computer science.
+My name is Daniel Profili, and I am a first year mathematics PhD student at NC State University.
 
 # Contact
 
-You can reach me at `dprofili3 at gatech dot edu` or `dprofili at
+You can reach me at `daprofil@ncsu.edu` or `dprofili at
 protonmail dot com`.
 
 # Research
