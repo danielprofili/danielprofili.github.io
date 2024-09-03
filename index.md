@@ -5,13 +5,12 @@
 </figure>
 # About
 
-My name is Daniel Profili, and I am a firsmathematics PhD student at
+My name is Daniel Profili, and I am a mathematics PhD student at
 NC State University. My advisor is [Hoon Hong](https://hong.math.ncsu.edu/).
 
 # Contact
 
-You can reach me at `daprofil@ncsu.edu` or `dprofili at
-protonmail dot com`.
+You can reach me at `daprofil@ncsu.edu`.
 
 # Research
 
