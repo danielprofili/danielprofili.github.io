@@ -1,3 +1,0 @@
-# Personal
-
-Nothing here yet
