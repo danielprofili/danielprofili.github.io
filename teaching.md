@@ -1,5 +1,6 @@
-# NCSU
-## Recitation Leader
+# Teaching
+## NCSU
+### Recitation Leader
 - MA 241 Calculus I 
   - Spring 2024
 - MA 242 Calculus II
@@ -8,8 +9,8 @@
   - Fall 2023
   - Fall 2024
 
-# Georgia Tech
-## Undergraduate TA
+## Georgia Tech
+### Undergraduate TA
  - CS 1371 Computing for Engineers (Fall 2017 - Summer 2018)
 
 <!-- I designed and wrote most of the [test case -->
