@@ -19,7 +19,7 @@ minima:
     # facebook: jekyll
     # flickr:   jekyll
     # instagram: jekyll
-    # linkedin: jekyll
+    linkedin: danielprofili
     # pinterest: jekyll
     # youtube: jekyll
     # youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
@@ -48,4 +48,3 @@ minima:
 header_pages:
  - research.md
  - teaching.md
- - personal.md
