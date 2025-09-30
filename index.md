@@ -14,8 +14,7 @@ You can reach me at `daprofil@ncsu.edu`.
 
 # Research
 
-My research interests are, broadly, the computational aspects of real
-algebraic geometry. My PhD research, with [Hoon
+My research interests are computer algebra and computational real algebraic geometry. My PhD research, with [Hoon
 Hong](https://hong.math.ncsu.edu/) and [J. Rafael
 Sendra](https://www.cunef.edu/en/sendra-pons-juan-rafael/), is about generalizing Descartes' rule of signs. 
 
