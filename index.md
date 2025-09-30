@@ -25,8 +25,8 @@ Sendra](https://www.cunef.edu/en/sendra-pons-juan-rafael/), is about generalizin
 # Publications
 
 
-1. Hong, Hoon, **Daniel Profili**, and J. Rafael Sendra. "Conditions for eigenvalue configurations of two real symmetric matrices: a symmetric function approach." arXiv preprint arXiv:2401.00089 (2023).
-2. Hong, Hoon, **Daniel Profili**, and J. Rafael Sendra. "Conditions for eigenvalue configurations of two real symmetric matrices: a signature approach." arXiv preprint arXiv:2401.00086 (2023).
+1. Hong, Hoon, **Daniel Profili**, and J. Rafael Sendra. ["Conditions for eigenvalue configurations of two real symmetric matrices."](https://arxiv.org/pdf/2401.00866) arXiv preprint arXiv:2401.00086 (2025).
+2. Hong, Hoon, **Daniel Profili**, and J. Rafael Sendra. ["Conditions for eigenvalue configurations of two real symmetric matrices: a symmetric function approach."](https://arxiv.org/pdf/2401.00089) arXiv preprint arXiv:2401.00089 (2023).
 3. Copper Sulfide Perfluorocarbon Nanodroplets as Clinically Relevant Photoacoustic/Ultrasound Imaging Agents,
     Daniela Y. Santiesteban, Diego S. Dumani, **Daniel Profili**, and Stanislav Y. Emelianov,
     Nano Letters 2017 17 (10), 5984-5989,
