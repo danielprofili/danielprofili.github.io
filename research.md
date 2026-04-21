@@ -1,8 +1,5 @@
 # Research
 
-My research interests are computer algebra, real algebraic
-geometry, and combinatorics.
-
 ## Tropical resultants
 
 ### [Resultant polytopes](https://github.com/danielprofili/resultant-fvectors)
