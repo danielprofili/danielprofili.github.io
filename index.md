@@ -5,13 +5,13 @@
 </figure>
 # About
 
-My name is Daniel Profili, and I am a mathematics PhD candidate at
-NC State University, working under Professor [Hoon
-Hong](https://hong.math.ncsu.edu/). 
+My name is Daniel Profili, and I am a recent PhD graduate in
+mathematics. I studied at North Carolina State University, and my
+advisor was Hoon Hong.
 
-My research interests are symbolic computation and constructive real algebraic
-geometry. My
-[dissertation](https://repository.lib.ncsu.edu/items/77838cd8-4fb0-4a46-990b-1a2bf5bac96d)
+My research interests are symbolic computation, constructive real algebraic
+geometry, and mathematical software development. My
+[PhD dissertation](https://repository.lib.ncsu.edu/items/77838cd8-4fb0-4a46-990b-1a2bf5bac96d)
 is about designing algorithms to efficiently generate conditions on
 parametric matrices so that their eigenvalues are arranged in a given order.
 
@@ -21,11 +21,6 @@ and/or
 [scientific](https://github.com/danielprofili/quantum-chemistry-neuralnetwork)
 software bridging mathematics and interdisciplinary areas, with the
 primary goal of making mathematics more accessible.
-
-# Contact
-
-You can reach me at `daprofil@ncsu.edu`.
-
 <!-- In the past I've been involved in a project [using neural networks to simulate molecular interactions](https://github.com/danielprofili/quantum-chemistry-neuralnetwork) and another project in which I helped [design algorithms for processing ultrasound images](https://pubs.acs.org/doi/full/10.1021/acs.nanolett.7b02105). -->
 <!-- My [undergraduate thesis](https://smartech.gatech.edu/bitstream/handle/1853/64862/PROFILI-UNDERGRADUATERESEARCHOPTIONTHESIS-2021.pdf?sequence=1) was about the combinatorial structure of certain polytopes in 4 and 5 dimensions, which you can read about [here](https://danielprofili.github.io/research.html). -->
 
