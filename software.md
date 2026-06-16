@@ -1,6 +1,6 @@
 # Software
 
-## `AISRouteFinder`
+<h2 style="font-family: monospace, monospace;"> AISRouteFinder </h2>
 ![Apache
 Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -18,7 +18,8 @@ large number
 (>2 million) of input AIS (automatic identfication system) data
 points.  
 
-## `ECSignature`
+<!-- ## `ECSignature` -->
+<h2 style="font-family: monospace, monospace;"> ECSignature </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-signature)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
 **`ECSignature`** is a symbolic computation algorithm which takes as
@@ -28,7 +29,8 @@ entries so that their eigenvalues are arranged according to the input
 arrangement. It is implemented in the computer algebra system Maple
 and relies on the theory of the signature of matrices.  
 
-## `ECSymmetry`
+<!-- ## `ECSymmetry` -->
+<h2 style="font-family: monospace, monospace;"> ECSymmetry </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-symmetry)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
 **`ECSymmetry`** is a symbolic computation algorithm which takes as
@@ -38,7 +40,8 @@ entries so that their eigenvalues are arranged according to the input
 arrangement. It is implemented in the computer algebra system Maple
 and relies on the theory of symmetric polynomials.  
 
-## `Test Case Compiler`
+<!-- ## `Test Case Compiler` -->
+<h2 style="font-family: monospace, monospace;"> Test Case Compiler </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler) ![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
 <figure class="image">
   <img src="./resources/tcc.png" alt="Test case compiler" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
@@ -50,7 +53,8 @@ course CS 1371 (Computing for Engineers) at Georgia Tech. Its
 purpose is to package and create automated grading rubrics for coding
 homework problems.  
 
-## `fvectors`
+<!-- ## `fvectors` -->
+<h2 style="font-family: monospace, monospace;"> fvectors </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/resultant-fvectors)![SageMath](https://img.shields.io/badge/SageMath-1299FF?logo=sagemath&logoColor=white) 
 <figure class="image">
   <img src="./resources/resultant.png" alt="Resultant polytope"
