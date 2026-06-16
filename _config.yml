@@ -48,3 +48,4 @@ minima:
 header_pages:
  - research.md
  - teaching.md
+ - software.md
