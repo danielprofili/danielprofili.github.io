@@ -43,7 +43,7 @@ and relies on the theory of symmetric polynomials.
 <!-- ## `Test Case Compiler` -->
 <h2 style="font-family: monospace, monospace;"> Test Case Compiler </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler)
-![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white) ![MATLAB](https://img.shields.io/badge/MATLAB-E36406)
+ ![MATLAB](https://img.shields.io/badge/MATLAB-E36406)![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
 <figure class="image">
   <img src="./resources/tcc.png" alt="Test case compiler" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
@@ -62,3 +62,7 @@ homework problems.
   style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;" />
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
 </figure>
+
+**`fvectors`** is a Python/SageMath tool used to study the
+combinatorial properties of higher-dimensional geometric objects which
+arise from abstract algebra.
