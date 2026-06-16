@@ -32,8 +32,8 @@ homework problems.
 ## Structure of 4 and 5 dimensional resultant polytopes
 ![SageMath](https://img.shields.io/badge/SageMath-1299FF?logo=sagemath&logoColor=white) [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/resultant-fvectors)
 <figure class="image">
-  <img src="./resources/resultant.png" alt="Resultant
-  polytope" style="-webkit-filter: drop-shadow(5px 5px 5px #222);
-  filter: drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;">
+  <img src="./resources/resultant.png" alt="Resultant polytope"
+  style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter:
+  drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;" />
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
 </figure>
