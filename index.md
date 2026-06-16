@@ -7,7 +7,7 @@
 
 My name is Daniel Profili, and I am a recent PhD graduate in
 mathematics. I studied at North Carolina State University, and my
-advisor was Hoon Hong.
+advisor was Professor Hoon Hong.
 
 My research interests are symbolic computation, constructive real algebraic
 geometry, and mathematical software development. My
@@ -15,12 +15,9 @@ geometry, and mathematical software development. My
 is about designing algorithms to efficiently generate conditions on
 parametric matrices so that their eigenvalues are arranged in a given order.
 
-More broadly, I am interested in developing
-[mathematical](https://github.com/danielprofili/eigenvalue-configurations)
-and/or
-[scientific](https://github.com/danielprofili/quantum-chemistry-neuralnetwork)
-software bridging mathematics and interdisciplinary areas, with the
-primary goal of making mathematics more accessible.
+More broadly, I am interested in developing mathematical and scientific
+[software](https://danielprofili.github.io/software.html) bridging
+mathematics and interdisciplinary areas so that mathematics can be more accessible.
 <!-- In the past I've been involved in a project [using neural networks to simulate molecular interactions](https://github.com/danielprofili/quantum-chemistry-neuralnetwork) and another project in which I helped [design algorithms for processing ultrasound images](https://pubs.acs.org/doi/full/10.1021/acs.nanolett.7b02105). -->
 <!-- My [undergraduate thesis](https://smartech.gatech.edu/bitstream/handle/1853/64862/PROFILI-UNDERGRADUATERESEARCHOPTIONTHESIS-2021.pdf?sequence=1) was about the combinatorial structure of certain polytopes in 4 and 5 dimensions, which you can read about [here](https://danielprofili.github.io/research.html). -->
 
@@ -30,7 +27,10 @@ primary goal of making mathematics more accessible.
    for eigenvalue configurations of two real symmetric matrices
    (signature approach)."](https://arxiv.org/pdf/2401.00866).
     SIAM Journal on Matrix Analysis and Applications (pending). (2026).
-2. Hong, Hoon, **Daniel Profili**, and J. Rafael Sendra. ["Conditions for eigenvalue configurations of two real symmetric matrices (symmetric function approach)."](https://arxiv.org/pdf/2401.00089) arXiv preprint arXiv:2401.00089 (2026).
+2. Hong, Hoon, **Daniel Profili**, and J. Rafael Sendra. ["Conditions
+   for eigenvalue configurations of two real symmetric matrices
+   (symmetric function approach)."](https://arxiv.org/pdf/2401.00089)
+   Journal of Symbolic Computation (pending) (2026).
 3. Santiesteban, Daniela Y., Diego S. Dumani, **Daniel Profili**, and
     Stanislav Y. Emelianov. [Copper Sulfide Perfluorocarbon
     Nanodroplets as Clinically Relevant Photoacoustic/Ultrasound
