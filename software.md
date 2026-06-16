@@ -1,6 +1,6 @@
 # Software
 
-## Maritime route finding tool
+## `AISRouteFinder`
 ![Apache
 Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
@@ -11,25 +11,46 @@ Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoC
   <!-- algorithm in action</figcaption> -->
 </figure>
 
-## EC Signature
+**`AISRouteFinder`** is an application which learns aggregate maritime
+traffic routes. It is implemented in Python and uses Apache Spark and
+cluster computing to generate maritime traffic graphs from a very
+large number
+(>2 million) of input AIS (automatic identfication system) data
+points.  
+
+## `ECSignature`
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-signature)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
-## EC Symmetry
+**`ECSignature`** is a symbolic computation algorithm which takes as
+input two symbolic matrices and a desired arrangement (ordering) of
+their eigenvalues, and gives as output a condition on the matrix
+entries so that their eigenvalues are arranged according to the input
+arrangement. It is implemented in the computer algebra system Maple
+and relies on the theory of the signature of matrices.  
+
+## `ECSymmetry`
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-symmetry)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
-## Homework creation tool for MATLAB class teaching assistants
+**`ECSymmetry`** is a symbolic computation algorithm which takes as
+input two symbolic matrices and a desired arrangement (ordering) of
+their eigenvalues, and gives as output a condition on the matrix
+entries so that their eigenvalues are arranged according to the input
+arrangement. It is implemented in the computer algebra system Maple
+and relies on the theory of symmetric polynomials.  
+
+## `Test Case Compiler`
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler) ![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
 <figure class="image">
   <img src="./resources/tcc.png" alt="Test case compiler" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
 </figure>
 
-The Test Case Compiler is a software tool designed for teaching assistants for the
+The **Test Case Compiler** is a software tool designed for teaching assistants for the
 course CS 1371 (Computing for Engineers) at Georgia Tech. Its
 purpose is to package and create automated grading rubrics for coding
-homework problems.
+homework problems.  
 
-## Structure of 4 and 5 dimensional resultant polytopes
+## `fvectors`
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/resultant-fvectors)![SageMath](https://img.shields.io/badge/SageMath-1299FF?logo=sagemath&logoColor=white) 
 <figure class="image">
   <img src="./resources/resultant.png" alt="Resultant polytope"
