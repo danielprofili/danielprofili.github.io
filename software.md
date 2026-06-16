@@ -11,7 +11,8 @@ Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoC
   <!-- algorithm in action</figcaption> -->
 </figure>
 
-## EC Signature [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-signature)![Maple](https://img.shields.io/badge/Maple-1299FF)
+## EC Signature
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-signature)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
 ## EC Symmetry
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-symmetry)![Maple](https://img.shields.io/badge/Maple-1299FF)
@@ -19,7 +20,7 @@ Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoC
 ## Homework creation tool for MATLAB class teaching assistants
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler) ![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
 <figure class="image">
-  <img src="./resources/tcc.png" alt="Test case compiler"style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);"/>
+  <img src="./resources/tcc.png" alt="Test case compiler" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
 </figure>
 
