@@ -1,7 +1,8 @@
 # Software
 
 ## Maritime route finding
-[![Apache Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff)](#)
+[![Apache
+Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff)]() ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 <figure class="image">
   <img src="./resources/hpc-diagram.png" alt="Genetic waypoints algorithm">
   <figcaption style="text-align: center; margin-block: 20px;">Genetic
