@@ -22,6 +22,12 @@ points.
 <h2 style="font-family: monospace, monospace;"> ECSignature </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-signature)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
+<figure class="image">
+  <img src="./resources/ec.png" alt="Eigenvalue configuration"
+  style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;" />
+  <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
+</figure>
+
 **`ECSignature`** is a symbolic computation algorithm which takes as
 input two symbolic matrices and a desired arrangement (ordering) of
 their eigenvalues, and gives as output a condition on the matrix

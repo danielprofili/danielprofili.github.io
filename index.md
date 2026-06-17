@@ -6,7 +6,7 @@
 # About
 
 My name is Daniel Profili, and I am a recent PhD graduate in
-mathematics. I studied at North Carolina State University, and my
+mathematics. I studied at North Carolina State University and my
 advisor was Professor Hoon Hong.
 
 My research interests are symbolic computation, constructive real algebraic
