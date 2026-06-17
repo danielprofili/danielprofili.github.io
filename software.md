@@ -55,7 +55,7 @@ and relies on the theory of symmetric polynomials.
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
 </figure>
 
-The **Test Case Compiler** is a software tool designed for teaching assistants for the
+The **`Test Case Compiler`** is a software tool designed for teaching assistants for the
 course CS 1371 (Computing for Engineers) at Georgia Tech. Its
 purpose is to package and create automated grading rubrics for coding
 homework problems.  
