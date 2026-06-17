@@ -4,7 +4,8 @@
 ![Apache
 Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff)
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Matplotlib](https://custom-icon-badges.demolab.com/badge/Matplotlib-71D291?logo=matplotlib&logoColor=fff) ![Scikit-learn](https://img.shields.io/badge/-scikit--learn-%23F7931E?logo=scikit-learn&logoColor=white)
+![Matplotlib](https://custom-icon-badges.demolab.com/badge/Matplotlib-71D291?logo=matplotlib&logoColor=fff)![Scikit-learn](https://img.shields.io/badge/-scikit--learn-%23F7931E?logo=scikit-learn&logoColor=white)
+![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white)
 <figure class="image">
   <img src="./resources/hpc-diagram.png" alt="Genetic waypoints algorithm" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Genetic -->
@@ -57,8 +58,7 @@ arrangement. It is implemented in the computer algebra system Maple
 and relies on the theory of symmetric polynomials.  
 
 <h2 style="font-family: monospace, monospace;"> QuantumChemistryNN </h2>
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/quantum-chemistry-neuralnetwork)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/quantum-chemistry-neuralnetwork)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white)![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
 <figure class="image">
   <img src="./resources/qc.png" alt="QC neural network"
   style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;" />
@@ -72,8 +72,7 @@ high-performance (cluster) computing.
 
 <!-- ## `Test Case Compiler` -->
 <h2 style="font-family: monospace, monospace;"> Test Case Compiler </h2>
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler)
- ![MATLAB](https://img.shields.io/badge/MATLAB-E36406)![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler)![MATLAB](https://img.shields.io/badge/MATLAB-E36406)![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
 <figure class="image">
   <img src="./resources/tcc.png" alt="Test case compiler" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
