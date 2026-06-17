@@ -77,6 +77,8 @@ combinatorial properties of higher-dimensional geometric objects which
 arise from abstract algebra. It is implemented using the computer
 algebra system SageMath and uses Python parallel processing libraries
 to speed up computations.
+
+You can read more about the theory behind this project [here](http://danielprofili.github.io/research.html#resultant-polytopes).
 <!-- ## `Test Case Compiler` -->
 <h2 style="font-family: monospace, monospace;"> Test Case Compiler </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler)![MATLAB](https://img.shields.io/badge/MATLAB-E36406)![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
