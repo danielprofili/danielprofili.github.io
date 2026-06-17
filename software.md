@@ -13,7 +13,7 @@ Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoC
 
 **`AISRouteFinder`** is an application which learns aggregate maritime
 traffic routes. It is implemented in Python and uses Apache Spark and
-cluster computing to generate maritime traffic graphs from a very
+high-performance (cluster) computing to generate maritime traffic graphs from a very
 large number
 (>2 million) of input AIS (automatic identfication system) data
 points.  
@@ -45,6 +45,30 @@ their eigenvalues, and gives as output a condition on the matrix
 entries so that their eigenvalues are arranged according to the input
 arrangement. It is implemented in the computer algebra system Maple
 and relies on the theory of symmetric polynomials.  
+
+<h2 style="font-family: monospace, monospace;"> ECSymmetry </h2>
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-symmetry)![Maple](https://img.shields.io/badge/Maple-1299FF)
+
+**`ECSymmetry`** is a symbolic computation algorithm which takes as
+input two symbolic matrices and a desired arrangement (ordering) of
+their eigenvalues, and gives as output a condition on the matrix
+entries so that their eigenvalues are arranged according to the input
+arrangement. It is implemented in the computer algebra system Maple
+and relies on the theory of symmetric polynomials.  
+
+<h2 style="font-family: monospace, monospace;"> QuantumChemistryNN </h2>
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/quantum-chemistry-neuralnetwork)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
+<figure class="image">
+  <img src="./resources/qc.png" alt="QC neural network"
+  style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;" />
+  <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
+</figure>
+
+**`QuantumChemistryNN`** is a research project investigating the
+ability of deep neural networks to approximate costly quantum-chemical
+calculations of molecular charges, using Keras, TensorFlow, and
+high-performance (cluster) computing.
 
 <!-- ## `Test Case Compiler` -->
 <h2 style="font-family: monospace, monospace;"> Test Case Compiler </h2>
