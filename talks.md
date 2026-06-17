@@ -1,7 +1,7 @@
 # Talks
 
-## Joint Mathematics Meetings (JMM) 2026 Talk
-### *Special Session on Numerical Algebraic Geometry and its Applications*
+### Joint Mathematics Meetings (JMM) 2026 Talk
+#### *Special Session on Numerical Algebraic Geometry and its Applications*
 
 <!-- <object data="./resources/jmm.df" type="application/pdf" width="700px" height="700px"> -->
 <!--     <embed src="./resources.jmm.pdf"> -->
