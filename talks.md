@@ -10,4 +10,4 @@
 <!-- </object> -->
 <embed
 src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://danielprofili.github.io/resources/jmm.pdf"
-style="text-align: center;" width="1000" height="750">
+style="text-align: center;" width="800" height="750">
