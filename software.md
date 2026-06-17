@@ -13,7 +13,7 @@ Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoC
 </figure>
 
 **`AISRouteFinder`** is an application which learns aggregate maritime
-traffic routes. It is implemented in Python and uses Apache Spark and
+traffic routes using a genetic (or evolutionary) algorithm. It is implemented in Python and uses Apache Spark and
 high-performance (cluster) computing to generate maritime traffic graphs from a very
 large number
 (>2 million) of input AIS (automatic identfication system) data
