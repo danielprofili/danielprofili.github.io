@@ -7,4 +7,6 @@
 <!--         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./resources/jmm.pdf">Download PDF</a>.</p> -->
 <!--     </embed> -->
 <!-- </object> -->
-<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://danielprofili.github.io/resources/jmm.pdf" width="500" height="375">
+<embed
+src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://danielprofili.github.io/resources/jmm.pdf"
+style="text-align: center;" width="1000" height="750">
