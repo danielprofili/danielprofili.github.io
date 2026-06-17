@@ -63,6 +63,20 @@ ability of deep neural networks to approximate costly quantum-chemical
 calculations of molecular charges, using Keras, TensorFlow, and
 high-performance (cluster) computing.
 
+<!-- ## `fvectors` -->
+<h2 style="font-family: monospace, monospace;"> fvectors </h2>
+[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/resultant-fvectors)![SageMath](https://img.shields.io/badge/SageMath-1299FF?logo=sagemath&logoColor=white) 
+<figure class="image">
+  <img src="./resources/resultant.png" alt="Resultant polytope"
+  style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;" />
+  <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
+</figure>
+
+**`fvectors`** is a Python/SageMath tool used to study the
+combinatorial properties of higher-dimensional geometric objects which
+arise from abstract algebra. It is implemented using the computer
+algebra system SageMath and uses Python parallel processing libraries
+to speed up computations.
 <!-- ## `Test Case Compiler` -->
 <h2 style="font-family: monospace, monospace;"> Test Case Compiler </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/CS1371/homework-compiler)![MATLAB](https://img.shields.io/badge/MATLAB-E36406)![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?logo=openjdk&logoColor=white)
@@ -76,15 +90,3 @@ course CS 1371 (Computing for Engineers) at Georgia Tech. Its
 purpose is to package and create automated grading rubrics for coding
 homework problems.  
 
-<!-- ## `fvectors` -->
-<h2 style="font-family: monospace, monospace;"> fvectors </h2>
-[![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/resultant-fvectors)![SageMath](https://img.shields.io/badge/SageMath-1299FF?logo=sagemath&logoColor=white) 
-<figure class="image">
-  <img src="./resources/resultant.png" alt="Resultant polytope"
-  style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222); display:block; margin: 0 auto; text-align:center;" />
-  <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
-</figure>
-
-**`fvectors`** is a Python/SageMath tool used to study the
-combinatorial properties of higher-dimensional geometric objects which
-arise from abstract algebra.
