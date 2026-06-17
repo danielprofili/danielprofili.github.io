@@ -45,7 +45,10 @@ input two symbolic matrices and a desired arrangement (ordering) of
 their eigenvalues, and gives as output a condition on the matrix
 entries so that their eigenvalues are arranged according to the input
 arrangement. It is implemented in the computer algebra system Maple
-and relies on the theory of symmetric polynomials.  
+and relies on the theory of symmetric polynomials. 
+
+It accomplishes the same goal as `ECSignature`, but uses different
+mathematical techniques.
 
 <h2 style="font-family: monospace, monospace;"> QuantumChemistryNN </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/quantum-chemistry-neuralnetwork)![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![Keras](https://img.shields.io/badge/Keras-%23D00000.svg?style=for-the-badge&logo=Keras&logoColor=white)![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)
