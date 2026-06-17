@@ -2,8 +2,9 @@
 
 ## Joint Mathematics Meetings (JMM) 2026 Invited Talk
 
-<object data="./resources/jmm.df" type="application/pdf" width="700px" height="700px">
-    <embed src="./resources.jmm.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./resources/jmm.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+<!-- <object data="./resources/jmm.df" type="application/pdf" width="700px" height="700px"> -->
+<!--     <embed src="./resources.jmm.pdf"> -->
+<!--         <p>This browser does not support PDFs. Please download the PDF to view it: <a href="./resources/jmm.pdf">Download PDF</a>.</p> -->
+<!--     </embed> -->
+<!-- </object> -->
+<embed src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://danielprofili.github.io/resources/jmm.pdf" width="500" height="375">
