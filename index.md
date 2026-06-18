@@ -29,7 +29,7 @@ mathematics and interdisciplinary areas so that mathematics can be more accessib
     SIAM Journal on Matrix Analysis and Applications (pending). (2026).
 2. Hong, Hoon, **Daniel Profili**, and J. Rafael Sendra. ["Conditions
    for eigenvalue configurations of two real symmetric matrices
-   (symmetric function approach)."](https://arxiv.org/pdf/2401.00089)
+   (symmetric polynomials approach)."](https://arxiv.org/pdf/2401.00089)
    Journal of Symbolic Computation (pending) (2026).
 3. Santiesteban, Daniela Y., Diego S. Dumani, **Daniel Profili**, and
     Stanislav Y. Emelianov. [Copper Sulfide Perfluorocarbon
