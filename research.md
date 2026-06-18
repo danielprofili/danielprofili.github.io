@@ -1,9 +1,6 @@
 # Research
 
-## Eigenvalue configurations {#eigenvalue-configurations}
-
-
-
+<!-- ## Eigenvalue configurations {#eigenvalue-configurations} -->
 
 ## Resultant polytopes {#resultant-polytopes}
 
