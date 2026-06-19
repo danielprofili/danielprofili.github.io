@@ -1,5 +1,5 @@
 <figure class="image">
-  <img id="logo" src="./assets/pic3.png" alt="Profile picture">
+  <img id="logo" src="./assets/pic3.png" alt="Profile picture" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
   <figcaption style="text-align: center; margin-block: 20px;
   font-variant: all-small-caps"><a href="./resources/issac.pdf">ISSAC 2024 Distinguished Poster Award</a></figcaption>
 </figure>
