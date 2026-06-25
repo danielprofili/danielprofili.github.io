@@ -64,7 +64,7 @@ calculations of molecular charges, using Keras, TensorFlow, and
 high-performance (cluster) computing.
 
 <!-- ## `fvectors` -->
-<h2 style="font-family: monospace, monospace;"> fvectors </h2>
+<h2 style="font-family: monospace, monospace;"> resultant-fvectors </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/resultant-fvectors)![SageMath](https://img.shields.io/badge/SageMath-1299FF?logo=sagemath&logoColor=white) 
 <figure class="image">
   <img src="./resources/resultant.png" alt="Resultant polytope"
@@ -72,7 +72,7 @@ high-performance (cluster) computing.
   <!-- <figcaption style="text-align: center; margin-block: 20px;">Test Case Compiler user interface</figcaption> -->
 </figure>
 
-**`fvectors`** is a Python/SageMath tool used to study the
+**`resultant-fvectors`** is a Python/SageMath tool used to study the
 combinatorial properties of higher-dimensional geometric objects which
 arise from abstract algebra. It is implemented using the computer
 algebra system SageMath and uses Python parallel processing libraries
