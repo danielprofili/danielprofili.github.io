@@ -19,7 +19,7 @@ large number
 (>2 million) of input AIS (automatic identfication system) data
 points.
 Maritime traffic graphs have a wide range of applications, including
-route optimization, maritime awareness, economic modeling, and more.
+route optimization, maritime domain awareness, economic modeling, and more.
 
 <!-- ## `ECSignature` -->
 <h2 style="font-family: monospace, monospace;"> ECSignature </h2>
@@ -37,6 +37,19 @@ their eigenvalues, and gives as output a condition on the matrix
 entries so that their eigenvalues are arranged according to the input
 arrangement. It is implemented in the computer algebra system Maple
 and relies on the theory of the signature of matrices.  
+
+The motivation behind this project (and `ECSymmetry`) comes from the ubiquity
+of real symmetric matrices. Problems naturally arise from nearly every field of
+mathematics, science, and engineering which involve the eigenvalues of
+real symmetric (or Hermitian) matrices; to list a few:
+
+- Geometry (affine transformations/rotations)
+- Statistics and data science (Hessian matrices, covariance matrices)
+- Quantum mechanics (Hamiltonian matrices)
+- Graph theory (adjacency and Laplacian matrices)
+- Control system design (Lyapunov stability)
+- Mechanics and materials science (stress, strain, and inertia tensors)
+- Optimization (Hessian matrices)
 
 <!-- ## `ECSymmetry` -->
 <h2 style="font-family: monospace, monospace;"> ECSymmetry </h2>
