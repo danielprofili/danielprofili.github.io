@@ -17,7 +17,9 @@ traffic routes using a genetic (or evolutionary) algorithm. It is implemented in
 high-performance (cluster) computing to generate maritime traffic graphs from a very
 large number
 (>2 million) of input AIS (automatic identfication system) data
-points.  
+points.
+Maritime traffic graphs have a wide range of applications, including
+route optimization, maritime awareness, economic modeling, and more.
 
 <!-- ## `ECSignature` -->
 <h2 style="font-family: monospace, monospace;"> ECSignature </h2>
