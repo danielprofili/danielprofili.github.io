@@ -1,3 +1,5 @@
 .#*
 local/*
 Gemfile*
+.astro
+node_modules
