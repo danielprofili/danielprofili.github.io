@@ -11,3 +11,10 @@
 <embed
 src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://danielprofili.github.io/resources/jmm.pdf"
 style="text-align: center;" width="800" height="750">
+
+### ISSAC (International Symposium on Symbolic and Algebraic Computation) 2024
+#### *Poster (winner of the Distinguished Poster Award)*
+
+<embed
+src="https://drive.google.com/viewerng/viewer?embedded=true&url=https://danielprofili.github.io/resources/issac.pdf"
+style="text-align: center;" width="800" height="750">
