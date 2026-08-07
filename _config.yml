@@ -4,9 +4,13 @@ show_downloads: false
 title: Daniel Profili
 author:
   name: Daniel Profili
-  email: "daprofil@ncsu.edu"
+  email: "dprofili@gmail.com"
 description: Homepage
 logo: assets/profile_sq.png
+plugins:
+  - jekyll-remote-theme
+# remote-theme:
+
 minima:
   date_format: "%b %-d, %Y"
   skin: dark
@@ -50,3 +54,4 @@ header_pages:
  - talks.md
  - research.md
  - teaching.md
+ - contact.md
