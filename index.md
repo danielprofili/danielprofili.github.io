@@ -7,14 +7,21 @@
 
 I'm a researcher in computational mathematics and data science. My specialties are symbolic computation, constructive real algebraic
 geometry, and mathematical software development. 
+I am especially interested in developing mathematical and scientific
+software bridging
+mathematics and interdisciplinary areas so that mathematics can be more accessible.
 
 <!-- My [PhD dissertation](https://repository.lib.ncsu.edu/items/77838cd8-4fb0-4a46-990b-1a2bf5bac96d) -->
 <!-- is about designing algorithms to efficiently generate conditions on -->
 <!-- parametric matrices so that their eigenvalues are arranged in a given order. -->
 
-More broadly, I am interested in developing mathematical and scientific
-[software](https://danielprofili.github.io/software.html) bridging
-mathematics and interdisciplinary areas so that mathematics can be more accessible.
+Feel free to browse my [software
+portfolio](https://danielprofili.github.io/software), see a brief
+explanation of my
+[research](https://danielprofili.github.io/research), or [send me an
+email](https://danielprofili.github.io/contact). 
+Thanks for visiting!
+
 
 # [Publications](https://scholar.google.com/citations?user=XMcNBrMAAAAJ&hl=en&oi=ao)
 
