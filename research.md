@@ -1,6 +1,59 @@
 # Research
 
-<!-- ## Eigenvalue configurations {#eigenvalue-configurations} -->
+## Eigenvalue configurations {#eigenvalue-configurations}
+### Quantifier elimination {#qe}
+
+Imagine you want to write a computer program which takes as input a
+mathematical expression and returns either `TRUE` or `FALSE`. (In
+computer science, this is called a decision problem.) The input
+expression can contain arithmetic, equalities, inequalities, and
+logical operators AND (conjunction) and OR (disjunction).
+For inputs which don't contain any variables, this is trivial.
+
+```
+In: 1 + 1 = 2
+Out: TRUE
+```
+
+```
+In: 1 * 1 = 2
+Out: FALSE
+```
+
+```
+In: 1 > 1 AND 2^1024 > 10^308
+Out: FALSE
+```
+
+Simply have your program evaluate the left and right-hand sides of
+each expression and compare them, and you're done.
+
+Things get more interesting when you allow variables.
+specifically, I mean *free* variables, or indeterminates, which are
+symbols which don't have a prescribed value. For example, consider the
+question "is $$x$$ greater than zero?" 
+
+``` 
+In: x > 0
+Out: ???
+```
+
+As long as $$x$$ is undetermined, it is impossible to assign a
+concrete truth value to that question. This is called an open formula.
+We would need to "plug in" a
+value for $$x$$ first. Once we do that, the question becomes as easy to
+answer as in the first two examples.
+
+Finally, let us allow two more special symbols $$\exists$$ (exists) and
+$$\forall$$ (for all), called *quantifiers*. These are special symbols which
+allow us to quantify the number of objects which satisfy a given
+formula.
+
+For example, the expression $$\exists x : x > 0$$ is read as "does
+there exist $$x$$ such that $$x > 0$$?" Or, equivalently, "is there
+at least one possible value of $$x$$ such that $$x > 0$$?" 
+
+
 
 ## Resultant polytopes {#resultant-polytopes}
 
