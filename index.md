@@ -1,5 +1,5 @@
 <figure class="image">
-  <img id="logo" src="./assets/pic3.png" alt="Profile picture" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
+  <img id="logo" src="./assets/profile2.jpg" alt="Profile picture" style="-webkit-filter: drop-shadow(5px 5px 5px #222); filter: drop-shadow(5px 5px 5px #222);">
   <!-- <figcaption style="text-align: center; margin-block: 20px; -->
   <!-- font-variant: all-small-caps">Daniel Profili</figcaption> -->
 </figure>
