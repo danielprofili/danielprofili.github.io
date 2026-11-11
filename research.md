@@ -1,59 +1,88 @@
 # Research
 
 ## Eigenvalue configurations {#eigenvalue-configurations}
-### Quantifier elimination {#qe}
+This is the topic of [my PhD dissertation](./resources/dis.pdf).
 
-Imagine you want to write a computer program which takes as input a
-mathematical expression and returns either `TRUE` or `FALSE`. (In
-computer science, this is called a decision problem.) The input
-expression can contain arithmetic, equalities, inequalities, and
-logical operators AND (conjunction) and OR (disjunction).
-For inputs which don't contain any variables, this is trivial.
+Real symmetric matrices can be found in nearly any area of
+mathematics, science, and engineering: covariance matrices in
+statistics, Hessians in statistics and optimization, Laplacian
+matrices in graph theory, and stress tensors in mechanics, to name a
+few. Often, we are interested in their (real) eigenvalues and their
+arrangements on the real line.
 
-```
-In: 1 + 1 = 2
-Out: TRUE
-```
+Let $$F \in \mathbb{R}^{m \times m}$$ and $$G \in \mathbb{R}^{n \times
+n}$$ be real symmetric matrices with eigenvalues $$\alpha_1 \le \dots
+\le \alpha_m$$ and $$\beta_1 \le \dots \le \beta_n$$,
+respectively. Their eigenvalue configuration, written $$\mathrm{EC}(F,
+G)$$, is the relative arrangement of the $$\alpha$$'s and the
+$$\beta$$'s on the real line. When $$F$$ and $$G$$ do not share
+eigenvalues (we call this a *generic pair*), the eigenvalue
+configuration is
 
-```
-In: 1 * 1 = 2
-Out: FALSE
-```
+$$\mathrm{EC}(F, G) = (c_1, \dots, c_m),$$
 
-```
-In: 1 > 1 AND 2^1024 > 10^308
-Out: FALSE
-```
+where $$c_i$$ is the number of eigenvalues of $$G$$ lying between
+$$\alpha_i$$ and $$\alpha_{i+1}$$, and $$c_m$$ is the number of
+eigenvalues of $$G$$ larger than $$\alpha_m$$. (The number of
+eigenvalues of $$G$$ below $$\alpha_1$$ is therefore $$n - c_1 - \dots - c_m$$.)
 
-Simply have your program evaluate the left and right-hand sides of
-each expression and compare them, and you're done.
+**Example.** Let
 
-Things get more interesting when you allow variables.
-specifically, I mean *free* variables, or indeterminates, which are
-symbols which don't have a prescribed value. For example, consider the
-question "is $$x$$ greater than zero?" 
+$$F = \begin{bmatrix} 1 & 1 \\ 1 & 3 \end{bmatrix}, \qquad G = \begin{bmatrix} 2 & -1 \\ -1 & 4 \end{bmatrix}.$$
 
-``` 
-In: x > 0
-Out: ???
-```
+The eigenvalues of $$F$$ are $$2 \pm \sqrt{2} \approx 0.59, 3.41$$ and the eigenvalues of $$G$$ are $$3 \pm \sqrt{2} \approx 1.59, 4.41$$, so $$\alpha_1 < \beta_1 < \alpha_2 < \beta_2$$. 
 
-As long as $$x$$ is undetermined, it is impossible to assign a
-concrete truth value to that question. This is called an open formula.
-We would need to "plug in" a
-value for $$x$$ first. Once we do that, the question becomes as easy to
-answer as in the first two examples.
+![ec-diagram](./resources/ec-example.png)
 
-Finally, let us allow two more special symbols $$\exists$$ (exists) and
-$$\forall$$ (for all), called *quantifiers*. These are special symbols which
-allow us to quantify the number of objects which satisfy a given
-formula.
+Hence, we have $$\mathrm{EC}(F, G) = (0, 1).$$.
 
-For example, the expression $$\exists x : x > 0$$ is read as "does
-there exist $$x$$ such that $$x > 0$$?" Or, equivalently, "is there
-at least one possible value of $$x$$ such that $$x > 0$$?" 
+### The problem
+Suppose now that the entries of $$F$$ and $$G$$ are not simply numbers
+but instead depend on some parameters $$p = (p_1, \dots, p_t)$$. 
+For matrices larger than $$4 \times 4$$, we can no longer compute the
+eigenvalues symbolically. 
+We have the following problem:
 
+- **In**: parametric real symmetric matrices $$F$$ and $$G$, and a
+  desired eigenvalue configuration $$c$$
+- **Out**: a "simple" condition on the parameters $$p$$ such that $$\mathrm{EC}(F, G) = c.$$
 
+Writing down *some* condition on $$p$$ is easy. We can write down
+
+$$\exists\, \alpha_1, \dots, \alpha_m,\ \beta_1, \dots, \beta_n \ \
+\Phi_c(\alpha_1, \dots, \alpha_m, \beta_1, \dots, \beta_n, p),$$
+
+where $$\Phi_c$$ says "the $$\alpha$$'s and $$\beta$$'s are the
+eigenvalues of $$F$$ and $$G$$ and are arranged according to $$c$$".
+But this expression involves the eigenvalues, which cannot in general
+be symbolically represented in terms of $$p$$.
+Thus, by "simple," we mean *quantifier-free*: an expression involving
+semialgebraic conditions on the parameters $$p$$ only.
+
+In a landmark result, the logician Alfred Tarski proved that the
+general problem of rewriting a logical expression without quantifiers,
+called *quantifier elimination*, is always possible over real closed
+fields. In fact, he even gave an algorithm for doing so, and many
+improved algorithms have been developed since. However, these general
+algorithms, while very powerful, are time-consuming to run and produce
+very large unstructured output expressions. Hence, they are
+intractable for most applications. The challenge, therefore, is to
+find an efficient algorithm that exploits the structure of this
+particular problem and produces structured output.
+
+### Motivation: Descartes' rule of signs
+
+Descartes' rule of signs says that the number of positive roots of a
+real polynomial is at most the number of sign changes in its
+coefficients, with equality when all the roots are real.
+Take $$F = [0]$$ and
+
+$$G = \begin{bmatrix} 1 & 2 \ 2 & 1 \end{bmatrix}, \qquad g(x) =
+\det(xI - G) = x2 - 2x - 3 = (x + 1)(x - 3).$$
+
+The coefficients of $$g$$ have signs $$(+, -, -)$$, and there is
+exactly one sign change. Hence $$G$$ has exactly one positive
+eigenvalue, so $$\mathrm{EC}(F,G) = (1)$$.
 
 ## Resultant polytopes {#resultant-polytopes}
 
