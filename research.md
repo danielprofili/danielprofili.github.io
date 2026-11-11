@@ -1,5 +1,7 @@
 # Research
 
+---
+
 ## Eigenvalue configurations {#eigenvalue-configurations}
 This is the topic of [my PhD dissertation](./resources/dis.pdf).
 
@@ -30,11 +32,17 @@ eigenvalues of $$G$$ below $$\alpha_1$$ is therefore $$n - c_1 - \dots - c_m$$.)
 
 $$F = \begin{bmatrix} 1 & 1 \\ 1 & 3 \end{bmatrix}, \qquad G = \begin{bmatrix} 2 & -1 \\ -1 & 4 \end{bmatrix}.$$
 
-The eigenvalues of $$F$$ are $$2 \pm \sqrt{2} \approx 0.59, 3.41$$ and the eigenvalues of $$G$$ are $$3 \pm \sqrt{2} \approx 1.59, 4.41$$, so $$\alpha_1 < \beta_1 < \alpha_2 < \beta_2$$. 
+The eigenvalues of $$F$$ are $$2 \pm \sqrt{2} \approx 0.59, 3.41$$ and
+the eigenvalues of $$G$$ are $$3 \pm \sqrt{2} \approx 1.59, 4.41$$, so
+$$\alpha_1 < \beta_1 < \alpha_2 < \beta_2$$. Pictorially, the
+eigenvalues are arranged as follows ($$\alpha$$'s are red and
+$$\beta$$'s are blue):
 
 ![ec-diagram](./resources/ec-example.png)
 
-Hence, we have $$\mathrm{EC}(F, G) = (0, 1).$$.
+There is one eigenvalue of $$G$$ in $$(\alpha_1, \alpha_2)$$ and one
+in eigenvalue of $$G$$ greater than $$\alpha_2$$.
+Hence, we have $$\mathrm{EC}(F, G) = (1, 1).$$.
 
 ### The problem
 Suppose now that the entries of $$F$$ and $$G$$ are not simply numbers
@@ -43,7 +51,7 @@ For matrices larger than $$4 \times 4$$, we can no longer compute the
 eigenvalues symbolically. 
 We have the following problem:
 
-- **In**: parametric real symmetric matrices $$F$$ and $$G$, and a
+- **In**: parametric real symmetric matrices $$F$$ and $$G$$, and a
   desired eigenvalue configuration $$c$$
 - **Out**: a "simple" condition on the parameters $$p$$ such that $$\mathrm{EC}(F, G) = c.$$
 
@@ -55,7 +63,9 @@ $$\exists\, \alpha_1, \dots, \alpha_m,\ \beta_1, \dots, \beta_n \ \
 where $$\Phi_c$$ says "the $$\alpha$$'s and $$\beta$$'s are the
 eigenvalues of $$F$$ and $$G$$ and are arranged according to $$c$$".
 But this expression involves the eigenvalues, which cannot in general
-be symbolically represented in terms of $$p$$.
+be symbolically represented in terms of $$p$$, and involves
+quantification over an infinite set (namely, the real numbers), which
+cannot be evaluated by a computer. 
 Thus, by "simple," we mean *quantifier-free*: an expression involving
 semialgebraic conditions on the parameters $$p$$ only.
 
@@ -81,8 +91,28 @@ $$G = \begin{bmatrix} 1 & 2 \ 2 & 1 \end{bmatrix}, \qquad g(x) =
 \det(xI - G) = x2 - 2x - 3 = (x + 1)(x - 3).$$
 
 The coefficients of $$g$$ have signs $$(+, -, -)$$, and there is
-exactly one sign change. Hence $$G$$ has exactly one positive
-eigenvalue, so $$\mathrm{EC}(F,G) = (1)$$.
+exactly one sign change. By Descartes' rule of signs, $$G$$ therefore has exactly one positive
+eigenvalue, so $$\mathrm{EC}(F,G) = (1)$$. This example shows that the
+eigenvalue configuration problem generalizes Descartes' rule of signs
+by allowing arbitrary matrices for $$F$$ instead of just the zero matrix.
+
+Descartes' rule of signs is itself used widely in many areas of
+science and engineering, so we can expect that a more general result
+will have even wider applicability. For example:
+
+- **Rank updates**. If $$G = F + UCU^T$$ is a rank-$$r$$ update of $$F$$, how do the eigenvalues of $$F$$ move? For $$r = 1$$ the classical result is that the eigenvalues interlace; for larger $$r$$ much less is known.
+- **Network analysis.** If $$F$$ is the adjacency matrix (or
+  Laplacian) of a graph, adding or removing edges corresponds to
+  low-rank updates of this matrix, and many graph properties are
+  determined from the eigenvalues.
+- **Constrained optimization**. Optimizing an objective function over
+  the parameters of a system subject to a constraint like "the
+  eigenvalues of $$F$$ and $$G$$ are arranged corresponding to $$c$$"
+  (for instance, a stability condition) requires that the constraint
+  be expressable without quantifiers in terms of the parameters.
+
+
+---
 
 ## Resultant polytopes {#resultant-polytopes}
 
