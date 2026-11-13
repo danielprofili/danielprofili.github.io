@@ -1,0 +1,411 @@
+{% raw %}
+<!-- From an eigenvalue configuration vector to a picture of eigenvalues (or a proof that none exists). -->
+<style>
+#ec-inverse { margin: 30px 0; }
+#ec-inverse .eci-math { font-family: "Latin Modern Roman", "CMU Serif", "Times New Roman", Times, serif; }
+#ec-inverse .eci-form { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; margin-bottom: 12px; }
+#ec-inverse .eci-ec { display: flex; align-items: center; gap: 6px; font-size: 22px; white-space: nowrap; }
+#ec-inverse input {
+  font: inherit; color: #111; background: #fff; border: 1px solid #e8e8e8; border-radius: 3px; padding: 4px 8px;
+}
+#ec-inverse input:hover { border-color: #828282; }
+#ec-inverse input:focus { outline: none; border-color: #2a7ae2; }
+#ec-inverse #eci-c { font-family: "Latin Modern Roman", "CMU Serif", "Times New Roman", Times, serif; font-size: 20px; width: 220px; max-width: calc(100vw - 210px); }
+#ec-inverse #eci-n { width: 90px; }
+#ec-inverse label { font-size: 15px; }
+#ec-inverse .eci-small { color: #828282; font-size: 14px; }
+#ec-inverse .eci-examples { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 6px 0 20px; font-size: 14px; }
+#ec-inverse button {
+  font: inherit; font-size: 14px; cursor: pointer; color: #2a7ae2;
+  background: transparent; border: 1px solid #e8e8e8; border-radius: 3px; padding: 3px 10px;
+}
+#ec-inverse button:hover { border-color: #2a7ae2; }
+#ec-inverse button.eci-bad { color: #828282; }
+#ec-inverse button.eci-bad:hover { border-color: #828282; }
+#ec-inverse .eci-panel {
+  background: #fff; padding: 10px 15px; min-height: 60px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+#ec-inverse svg { display: block; width: 100%; height: auto; }
+#ec-inverse .eci-msg { padding: 20px 10px; text-align: center; }
+#ec-inverse .eci-msg strong { color: #111; }
+#ec-inverse .eci-out { margin-top: 25px; }
+#ec-inverse .eci-out p { margin-bottom: 8px; }
+#ec-inverse .eci-red { color: #f00; } #ec-inverse .eci-blue { color: #00f; }
+#ec-inverse .eci-big { font-size: 20px; }
+#ec-inverse .eci-frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.05; font-size: .85em; margin: 0 1px; }
+#ec-inverse .eci-frac > span:first-child { border-bottom: 1px solid currentColor; padding: 0 2px; }
+#ec-inverse .eci-pieces { overflow-x: auto; margin: 10px 0 15px; }
+#ec-inverse .eci-pieces table { width: 100%; margin-bottom: 0; }
+#ec-inverse .eci-pieces th, #ec-inverse .eci-pieces td { text-align: center; vertical-align: middle; white-space: nowrap; }
+#ec-inverse .eci-pieces th.eci-left, #ec-inverse .eci-pieces td.eci-left { text-align: left; white-space: normal; }
+#ec-inverse .eci-pieces td.eci-pic { width: 150px; min-width: 110px; padding-top: 2px; padding-bottom: 2px; }
+#ec-inverse .eci-pieces td.eci-v { font-family: "Latin Modern Roman", "CMU Serif", "Times New Roman", Times, serif; font-size: 18px; }
+#ec-inverse .eci-pieces .eci-zero { color: #ccc; }
+#ec-inverse .eci-pieces .eci-c0 { color: #828282; }
+#ec-inverse .eci-pieces .eci-c0 .eci-zero { color: #e0e0e0; }
+#ec-inverse .eci-pieces tr.eci-total td { border-top: 2px solid #111; font-weight: bold; }
+#ec-inverse .eci-pieces .eci-sub { display: block; color: #828282; font-size: 13px; font-weight: normal; }
+@media (max-width: 600px) {
+  #ec-inverse .eci-pieces table { width: auto; }
+  #ec-inverse .eci-pieces th, #ec-inverse .eci-pieces td { padding: 4px 5px; }
+  #ec-inverse .eci-pieces td.eci-pic { width: 90px; min-width: 90px; }
+  #ec-inverse .eci-pieces td.eci-left { min-width: 150px; }
+  #ec-inverse .eci-pieces td.eci-v { font-size: 16px; }
+}
+#ec-inverse .eci-nav { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+</style>
+
+<div id="ec-inverse">
+  <div class="eci-form">
+    <div class="eci-ec eci-math">
+      <label for="eci-c" style="font-size:22px">EC(<i>F</i>, <i>G</i>) = (</label>
+      <input id="eci-c" type="text" value="1/4, 1/2, 5/4" spellcheck="false" autocomplete="off"
+             aria-describedby="eci-help"><span>)</span>
+    </div>
+    <div>
+      <label for="eci-n">Number of blue points <i>n</i>:</label>
+      <input id="eci-n" type="number" min="1" max="16" step="1" placeholder="fewest">
+    </div>
+  </div>
+  <p class="eci-small" id="eci-help">Separate entries with commas; fractions (3/4) and decimals (0.75) are fine. The number of entries is the number of red points <i>m</i>. Leave <i>n</i> blank to use as few blue points as possible.</p>
+
+  <div class="eci-examples">
+    <span>Possible:</span>
+    <button type="button" data-c="1, 1">(1, 1)</button>
+    <button type="button" data-c="0, 1">(0, 1)</button>
+    <button type="button" data-c="1/2, 3/2">(1/2, 3/2)</button>
+    <button type="button" data-c="1, 1/2">(1, 1/2)</button>
+    <button type="button" data-c="1/4, 1/2, 5/4">Example 83: (1/4, 1/2, 5/4)</button>
+    <button type="button" data-c="3/8, 3/8, 1/8">(3/8, 3/8, 1/8)</button>
+    <span style="margin-left:8px">Impossible:</span>
+    <button type="button" class="eci-bad" data-c="1/3">(1/3)</button>
+    <button type="button" class="eci-bad" data-c="1/4, 0">(1/4, 0)</button>
+  </div>
+
+  <div class="eci-panel" aria-live="polite">
+    <svg id="eci-svg" viewBox="0 0 800 140" role="img" aria-labelledby="eci-desc"><desc id="eci-desc"></desc></svg>
+    <div class="eci-msg" id="eci-msg" hidden></div>
+  </div>
+
+  <div class="eci-out" id="eci-out"></div>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var NS = 'http://www.w3.org/2000/svg';
+  var RED = '#f00', BLUE = '#00f', INK = '#111';
+  var SERIF = '"Latin Modern Roman","CMU Serif","Times New Roman",Times,serif';
+  var MAXM = 6, MAXN = 16, CAP = 200;
+  var state = { sols: [], idx: 0, m: 0, C: null };
+
+  // ---------- rational numbers ----------
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function parseRational(tok) {
+    tok = tok.trim();
+    var mixed = /^(\d+)\s+(\d+)\s*\/\s*(\d+)$/.exec(tok);
+    if (mixed) { var q0 = +mixed[3]; if (!q0) return null; return reduce(+mixed[1] * q0 + +mixed[2], q0); }
+    var fr = /^([+-]?\d+)\s*\/\s*(\d+)$/.exec(tok);
+    if (fr) { if (+fr[2] === 0) return null; return reduce(+fr[1], +fr[2]); }
+    var dec = /^([+-]?)(\d*)(?:\.(\d+))?$/.exec(tok);
+    if (dec && (dec[2] || dec[3])) {
+      var digits = dec[3] || '', q = Math.pow(10, digits.length);
+      var p = (+(dec[2] || 0)) * q + (+(digits || 0));
+      return reduce(dec[1] === '-' ? -p : p, q);
+    }
+    return null;
+  }
+  function reduce(p, q) { var g = gcd(p, q); return { p: p / g, q: q / g }; }
+  function fracHTML(p, q) {
+    var g = gcd(p, q); p /= g; q /= g;
+    if (q === 1) return String(p);
+    return '<span class="eci-frac"><span>' + p + '</span><span>' + q + '</span></span>';
+  }
+  function ratText(r) { return r.q === 1 ? String(r.p).replace('-', '−') : String(r.p).replace('-', '−') + '/' + r.q; }
+
+  // ---------- the mathematics ----------
+  // Each blue point contributes independently to EC(F, G). A blue point in a gap with k red points below it adds
+  // 1 to c_k. A blue point on top of a group of mu equal red points, with p red points below the group, adds
+  // C(mu, t) / 2^mu to c_(p+t) for t = 0..mu (half of the perturbations push each of those red points below it).
+  // All quantities are scaled by 2^m so the arithmetic is exact.
+  function binom(n, k) { var r = 1; for (var i = 1; i <= k; i++) r = r * (n - k + i) / i; return Math.round(r); }
+  function compositions(m) {
+    var out = [];
+    (function rec(rem, cur) {
+      if (rem === 0) { out.push(cur.slice()); return; }
+      for (var a = 1; a <= rem; a++) { cur.push(a); rec(rem - a, cur); cur.pop(); }
+    })(m, []);
+    return out;
+  }
+  // C[1..m]: entries times 2^m (integers). n: number of blue points. Returns arrangements
+  // {mu: group sizes of red points, x: blue points on each group, y: blue points in each gap}.
+  function solve(C, m, n) {
+    var D = Math.pow(2, m), sols = [], S = 0;
+    for (var k = 1; k <= m; k++) S += C[k];
+    var C0 = n * D - S;
+    if (C0 < 0) return sols;
+    compositions(m).forEach(function (mu0) {
+      if (sols.length >= CAP) return;
+      var r = mu0.length, mu = [0].concat(mu0), P = [0], g, t;
+      for (g = 1; g <= r; g++) P.push(P[g - 1] + mu[g]);
+      var x = new Array(r + 2).fill(null);
+      // a group of size >= 2 is the only source of the entries strictly inside it, which pins down x
+      for (g = 1; g <= r; g++) if (mu[g] >= 2) {
+        var unit = Math.pow(2, m - mu[g]), w = mu[g] * unit, k1 = P[g - 1] + 1;
+        if (C[k1] % w !== 0) return;
+        x[g] = C[k1] / w;
+        for (t = 1; t < mu[g]; t++) if (C[P[g - 1] + t] !== x[g] * binom(mu[g], t) * unit) return;
+      }
+      var y = new Array(r + 1).fill(0);
+      // walk the boundary entries c_(P_0), ..., c_(P_r) from left to right
+      (function dfs(g) {
+        if (sols.length >= CAP) return;
+        if (g > r) { sols.push({ mu: mu0.slice(), x: x.slice(1, r + 1), y: y.slice() }); return; }
+        var L = g >= 1 ? x[g] * Math.pow(2, m - mu[g]) : 0;
+        var target = g === 0 ? C0 : C[P[g]];
+        var cands = [null];
+        if (g < r) {
+          if (mu[g + 1] >= 2) cands = [x[g + 1]];
+          else { cands = []; for (var v = 0; v <= Math.floor((target - L) / Math.pow(2, m - 1)); v++) cands.push(v); }
+        }
+        cands.forEach(function (xv) {
+          var R = g < r ? xv * Math.pow(2, m - mu[g + 1]) : 0, rem = target - L - R;
+          if (rem < 0 || rem % D !== 0) return;
+          var save = x[g + 1];
+          if (g < r) x[g + 1] = xv;
+          y[g] = rem / D;
+          dfs(g + 1);
+          if (g < r) x[g + 1] = save;
+        });
+      })(0);
+    });
+    return sols;
+  }
+  function sum(a) { return a.reduce(function (s, v) { return s + v; }, 0); }
+  function positions(sol) {
+    var al = [], be = [];
+    sol.mu.forEach(function (k, g) { for (var i = 0; i < k; i++) al.push(g + 1); });
+    sol.x.forEach(function (k, g) { for (var i = 0; i < k; i++) be.push(g + 1); });
+    sol.y.forEach(function (k, g) { for (var i = 0; i < k; i++) be.push(g + (i + 1) / (k + 1)); });
+    be.sort(function (a, b) { return a - b; });
+    return { al: al, be: be };
+  }
+  // independent check, straight from Definition 81: average over all d in {-1,1}^m (times 2^m)
+  function ecScaled(al, be) {
+    var m = al.length, c = new Array(m + 1).fill(0);
+    for (var t = 0; t < (1 << m); t++) be.forEach(function (b) {
+      var k = 0;
+      al.forEach(function (a, i) { var d = (t >> i) & 1 ? 1 : -1; if (a < b || (a === b && d < 0)) k++; });
+      if (k > 0) c[k]++;
+    });
+    return c;
+  }
+
+  // ---------- drawing ----------
+  function el(tag, attrs) { var e = document.createElementNS(NS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); return e; }
+  function draw(al, be) {
+    var svg = $('eci-svg'), r = al.length ? al[al.length - 1] : 1;
+    var W = Math.round(Math.min(800, Math.max(300, svg.parentElement.clientWidth - 30)));
+    var Y = 0, LEVEL = 56, pad = W < 500 ? 30 : 50;
+    var sx = function (v) { return pad + v / (r + 1) * (W - 2 * pad); };
+    var items = al.map(function (v, i) { return { v: v, c: RED, name: 'α', i: i + 1 }; })
+      .concat(be.map(function (v, i) { return { v: v, c: BLUE, name: 'β', i: i + 1 }; }));
+    var seen = [], maxL = 0;
+    items.forEach(function (it) {
+      it.level = seen.filter(function (v) { return v === it.v; }).length;
+      seen.push(it.v); maxL = Math.max(maxL, it.level);
+    });
+    while (svg.lastChild) svg.removeChild(svg.lastChild);
+    var desc = el('desc', { id: 'eci-desc' });
+    desc.textContent = 'Red points (eigenvalues of F) at ' + al.join(', ') + '; blue points (eigenvalues of G) at ' + be.map(function (v) { return +v.toFixed(3); }).join(', ') + '.';
+    svg.appendChild(desc);
+    svg.appendChild(el('line', { x1: 12, x2: W - 12, y1: Y, y2: Y, stroke: INK, 'stroke-width': 1.5 }));
+    svg.appendChild(el('path', { d: 'M' + (W - 24) + ' ' + (Y - 6) + 'L' + (W - 12) + ' ' + Y + 'L' + (W - 24) + ' ' + (Y + 6), fill: 'none', stroke: INK, 'stroke-width': 1.5 }));
+    items.forEach(function (it) {
+      var g = el('g', { transform: 'translate(' + sx(it.v) + ',' + (Y - LEVEL * it.level) + ')' });
+      g.appendChild(el('circle', { r: 10, fill: it.c }));
+      var t = el('text', { y: -18, 'text-anchor': 'middle', 'font-size': 24, fill: it.c, 'font-family': SERIF, 'font-style': 'italic' });
+      t.innerHTML = it.name + '<tspan font-size="16" dy="6" font-style="normal">' + it.i + '</tspan>';
+      g.appendChild(t);
+      svg.appendChild(g);
+    });
+    var top = Y - LEVEL * maxL - 50;
+    svg.setAttribute('viewBox', '0 ' + top + ' ' + W + ' ' + (25 - top));
+  }
+
+  function vecHTML(arr, f) { return '(' + arr.map(f).join(', ') + ')'; }
+  function num(v) { return String(+v.toFixed(3)); }
+
+  function showMessage(html) {
+    $('eci-svg').style.display = 'none';
+    var msg = $('eci-msg'); msg.hidden = false; msg.innerHTML = html;
+    $('eci-out').innerHTML = '';
+  }
+
+  // ---------- decomposition into binomial pieces ----------
+  function sub(i) { return '<sub>' + i + '</sub>'; }
+  function miniSVG(sol, kind, g) {
+    // all red points, plus one blue point of the given kind (gap g or run g)
+    var r = sol.mu.length, w = 150, h, pad = 10, gap = 13, rr = 5;
+    var sx = function (v) { return pad + v / (r + 1) * (w - 2 * pad); };
+    var maxL = Math.max.apply(null, sol.mu) - 1 + (kind === 'run' ? 1 : 0);
+    h = 20 + gap * maxL; var y0 = h - 8;
+    var out = '<svg viewBox="0 0 ' + w + ' ' + h + '" aria-hidden="true">' +
+      '<line x1="2" x2="' + (w - 2) + '" y1="' + y0 + '" y2="' + y0 + '" stroke="#111" stroke-width="1"/>';
+    sol.mu.forEach(function (k, i) {
+      for (var j = 0; j < k; j++) out += '<circle cx="' + sx(i + 1) + '" cy="' + (y0 - gap * j) + '" r="' + rr + '" fill="#f00"/>';
+    });
+    var bx = kind === 'run' ? sx(g) : sx(g + 0.5), by = kind === 'run' ? y0 - gap * sol.mu[g - 1] : y0;
+    out += '<circle cx="' + bx + '" cy="' + by + '" r="' + rr + '" fill="#00f"/>';
+    return out + '</svg>';
+  }
+  function piecesHTML(sol, m) {
+    var D = Math.pow(2, m), r = sol.mu.length, P = [0], g, t;
+    for (g = 1; g <= r; g++) P.push(P[g - 1] + sol.mu[g - 1]);
+    var rows = [];
+    for (g = 0; g <= r; g++) {
+      // gap g: k = P[g] red points below
+      if (sol.y[g] > 0) {
+        var k = P[g], v = new Array(m + 1).fill(0); v[k] = D;
+        var where = g === 0 ? 'below <i>α</i>' + sub(1) : g === r ? 'above <i>α</i>' + sub(m) :
+          'between <i>α</i>' + sub(k) + ' and <i>α</i>' + sub(k + 1);
+        rows.push({ pic: miniSVG(sol, 'gap', g), text: 'Blue point ' + where,
+          note: k === 0 ? 'not counted in the vector' : 'adds 1 to <i>c</i>' + sub(k), count: sol.y[g], v: v });
+      }
+      // run g+1 of mu equal red points
+      if (g < r && sol.x[g] > 0) {
+        var mu = sol.mu[g], p0 = P[g], v2 = new Array(m + 1).fill(0), unit = Math.pow(2, m - mu), coeffs = [];
+        for (t = 0; t <= mu; t++) { v2[p0 + t] = binom(mu, t) * unit; coeffs.push(binom(mu, t)); }
+        var names = [];
+        for (t = p0 + 1; t <= p0 + mu; t++) names.push('<i>α</i>' + sub(t));
+        rows.push({ pic: miniSVG(sol, 'run', g + 1),
+          text: 'Blue point on ' + names.join(' = '),
+          note: mu === 1 ? 'one red point: ½, ½ over <i>c</i>' + sub(p0) + ', <i>c</i>' + sub(p0 + 1)
+            : mu + ' equal red points: (' + coeffs.join(', ') + ')/' + Math.pow(2, mu) + ' over <i>c</i>' + sub(p0) + ' to <i>c</i>' + sub(p0 + mu),
+          count: sol.x[g], v: v2 });
+      }
+    }
+    var total = new Array(m + 1).fill(0);
+    rows.forEach(function (rw) { rw.v.forEach(function (x, i) { total[i] += rw.count * x; }); });
+    var cell = function (x, i) {
+      return '<td class="eci-v' + (i === 0 ? ' eci-c0' : '') + '">' +
+        (x === 0 ? '<span class="eci-zero">0</span>' : fracHTML(x, D)) + '</td>';
+    };
+    var head = '<tr><th>Piece</th><th class="eci-left">Blue point</th><th>Count</th>';
+    for (var i = 0; i <= m; i++) head += '<th' + (i === 0 ? ' class="eci-c0" title="below α₁: not recorded in EC(F, G)"' : '') + '><i>c</i>' + sub(i) + '</th>';
+    head += '</tr>';
+    var body = rows.map(function (rw) {
+      return '<tr><td class="eci-pic">' + rw.pic + '</td><td class="eci-left">' + rw.text +
+        '<span class="eci-sub">' + rw.note + '</span></td><td>× ' + rw.count + '</td>' + rw.v.map(cell).join('') + '</tr>';
+    }).join('');
+    body += '<tr class="eci-total"><td></td><td class="eci-left">EC(<i>F</i>, <i>G</i>)<span class="eci-sub">count-weighted sum</span></td><td></td>' +
+      total.map(cell).join('') + '</tr>';
+    // the same thing as an equation, using the recorded entries c_1..c_m only
+    var vecOf = function (v) { return '(' + v.slice(1).map(function (x) { return fracHTML(x, D); }).join(', ') + ')'; };
+    var eq = rows.map(function (rw) { return '<span style="white-space:nowrap">' + (rw.count > 1 ? rw.count + '&thinsp;·&thinsp;' : '') + vecOf(rw.v) + '</span>'; }).join(' + ') +
+      ' = <b>' + vecOf(total) + '</b>';
+    return '<p><strong>Built from simpler pieces.</strong> Each blue point contributes on its own. A blue point between red points adds 1 to a single entry. ' +
+      'A blue point on top of a run of <i>μ</i> equal red points spreads binomial amounts C(<i>μ</i>, <i>t</i>)/2<sup><i>μ</i></sup> over <i>μ</i> + 1 neighboring entries, ' +
+      'because each of those red points moves below it in exactly half of the perturbations. The gray column <i>c</i>' + sub(0) + ' collects what falls below <i>α</i>' + sub(1) +
+      ', which the configuration vector does not record.</p>' +
+      '<div class="eci-pieces"><table><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>' +
+      '<p class="eci-math" style="font-size:19px;line-height:2.2;overflow-x:auto">EC(<i>F</i>, <i>G</i>) = ' + eq + '</p>';
+  }
+
+  function showSolution() {
+    var sol = state.sols[state.idx], m = state.m, D = Math.pow(2, m);
+    var pos = positions(sol);
+    $('eci-msg').hidden = true; $('eci-svg').style.display = '';
+    draw(pos.al, pos.be);
+    var check = ecScaled(pos.al, pos.be).slice(1);
+    var ok = check.every(function (v, i) { return v === state.C[i + 1]; });
+    var shared = sum(sol.x) > 0;
+    var html = '<p class="eci-math eci-big"><span class="eci-red">α</span> = ' + vecHTML(pos.al, num) +
+      ', &nbsp; <span class="eci-blue">β</span> = ' + vecHTML(pos.be, num) + '</p>' +
+      '<p>' + m + ' red point' + (m > 1 ? 's' : '') + ' and ' + pos.be.length + ' blue point' + (pos.be.length > 1 ? 's' : '') +
+      (state.nFree ? ' (the fewest possible)' : '') + '. Only the order matters: any values arranged the same way give the same configuration. ' +
+      (shared ? 'Because some eigenvalues are shared, the configuration is an average over perturbations, which is how fractional entries arise.'
+              : 'No eigenvalues are shared, so this is an ordinary generic configuration.') + '</p>' +
+      piecesHTML(sol, m) +
+      '<p class="eci-small">Check, straight from Definition 81 (averaging over all ' + D + ' perturbations): ' +
+      '<span class="eci-math" style="font-size:17px">EC(<i>F</i>, <i>G</i>) = ' + vecHTML(check, function (v) { return fracHTML(v, D); }) + '</span>' +
+      (ok ? ', as required.' : ' (mismatch; please report this).') + '</p>';
+    if (state.sols.length > 1) {
+      html += '<div class="eci-nav"><button type="button" id="eci-next">Show another arrangement</button>' +
+        '<span class="eci-small">' + (state.idx + 1) + ' of ' + state.sols.length + (state.sols.length >= CAP ? '+' : '') +
+        ' with ' + pos.be.length + ' blue points</span></div>';
+    }
+    $('eci-out').innerHTML = html;
+    var nb = $('eci-next');
+    if (nb) nb.addEventListener('click', function () { state.idx = (state.idx + 1) % state.sols.length; showSolution(); });
+  }
+
+  function run() {
+    var raw = $('eci-c').value.replace(/^\s*\(/, '').replace(/\)\s*$/, '').trim();
+    if (!raw) { showMessage('Enter a configuration vector, for example <span class="eci-math">1/4, 1/2, 5/4</span>.'); return; }
+    var toks = raw.indexOf(',') >= 0 ? raw.split(',') : raw.split(/\s+/);
+    var c = [];
+    for (var i = 0; i < toks.length; i++) {
+      var rr = parseRational(toks[i]);
+      if (!rr) { showMessage('Couldn’t read “' + toks[i].trim().replace(/</g, '&lt;') + '”. Enter numbers like 1, 0.5 or 3/4, separated by commas.'); return; }
+      c.push(rr);
+    }
+    var m = c.length;
+    if (m > MAXM) { showMessage('This demo handles vectors with up to ' + MAXM + ' entries.'); return; }
+    var neg = c.filter(function (r) { return r.p < 0; })[0];
+    if (neg) { showMessage('<strong>Impossible.</strong> Each entry counts blue points (on average), so none can be negative, but ' + ratText(neg) + ' is.'); return; }
+    var D = Math.pow(2, m);
+    var bad = c.filter(function (r) { return (r.p * D) % r.q !== 0; })[0];
+    if (bad) {
+      showMessage('<strong>Impossible.</strong> Each entry is an average over the 2<sup>' + m + '</sup> = ' + D +
+        ' perturbations of the red points, so it must be a multiple of 1/' + D + '. But ' + ratText(bad) + ' is not.');
+      return;
+    }
+    var C = [0].concat(c.map(function (r) { return r.p * D / r.q; }));
+    var S = sum(C.slice(1)) / D;
+    if (S > MAXN) { showMessage('This demo handles configurations whose entries add up to at most ' + MAXN + '.'); return; }
+
+    var nIn = $('eci-n').value.trim(), sols = [], nFree = nIn === '';
+    if (!nFree) {
+      var n = Number(nIn);
+      if (!Number.isInteger(n) || n < 1 || n > MAXN) { showMessage('The number of blue points <i>n</i> must be a whole number from 1 to ' + MAXN + '.'); return; }
+      if (S > n) { showMessage('<strong>Impossible.</strong> The entries add up to ' + num(S) + ', but there ' + (n === 1 ? 'is only 1 blue point' : 'are only ' + n + ' blue points') + ' to count.'); return; }
+      sols = solve(C, m, n);
+      if (!sols.length) {
+        showMessage('<strong>Impossible with n = ' + n + '.</strong> None of the ' + compositions(m).length +
+          ' ways of grouping ' + m + ' red point' + (m > 1 ? 's' : '') + ' allows ' + n + ' blue point' + (n > 1 ? 's' : '') +
+          ' to be placed with this configuration. Try leaving <i>n</i> blank.');
+        return;
+      }
+    } else {
+      // the fewest blue points: at least the sum of the entries, and never more than twice it (plus one)
+      for (var nn = Math.max(1, Math.ceil(S - 1e-9)); nn <= Math.ceil(2 * S) + 1 && !sols.length; nn++) sols = solve(C, m, nn);
+      if (!sols.length) {
+        showMessage('<strong>Impossible.</strong> None of the ' + compositions(m).length + ' ways of grouping ' + m +
+          ' red point' + (m > 1 ? 's' : '') + ' (into runs of equal eigenvalues) allows any number of blue points to be placed with this configuration.' +
+          '<br><span class="eci-small">Fractional entries only come from blue points sitting on red points, and those contributions spread over neighboring entries in binomial proportions (½, ½ for a single red point; ¼, ½, ¼ for two equal red points; and so on). This vector can’t be built from such pieces.</span>');
+        return;
+      }
+    }
+    // simplest pictures first: fewest shared eigenvalues, then fewest coincident red points
+    sols.sort(function (a, b) { return sum(a.x) - sum(b.x) || b.mu.length - a.mu.length; });
+    state = { sols: sols, idx: 0, m: m, C: C, nFree: nFree };
+    showSolution();
+  }
+
+  var tm;
+  function later() { clearTimeout(tm); tm = setTimeout(run, 250); }
+  $('eci-c').addEventListener('input', later);
+  $('eci-n').addEventListener('input', later);
+  $('eci-c').addEventListener('keydown', function (e) { if (e.key === 'Enter') run(); });
+  document.querySelectorAll('#ec-inverse .eci-examples button').forEach(function (b) {
+    b.addEventListener('click', function () { $('eci-c').value = b.getAttribute('data-c'); $('eci-n').value = ''; run(); });
+  });
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(function () { if (state.sols.length && $('eci-msg').hidden) showSolution(); }, 150); });
+  run();
+})();
+</script>
+{% endraw %}
