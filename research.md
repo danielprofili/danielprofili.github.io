@@ -210,6 +210,9 @@ $$D_r$$ (the numbers of positive roots, by Descartes' rule of signs).
 
 See [Example 69 here](./dis.pdf#page=60) for a fully worked example.
 
+This approach is implemented in
+[`ECSymmetry`](https://danielprofili.github.io/software#symmetry).
+
 In both approaches, the output has size $$n(2^m - 1)$$ (counting the
 total number of polynomials in the parameters). Note that if $$m$$ is
 fixed, the output grows only linearly in $$n$$; thus, in practice, one
