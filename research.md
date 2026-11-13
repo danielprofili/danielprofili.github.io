@@ -136,7 +136,7 @@ $$\mathrm{EC}(F, G) = C_{\mathrm{sig}}\, A_{\mathrm{sig}}(F, G),$$
 where
 
 - $$C_{\mathrm{sig}}$$ is a rational matrix depending only on $$m$$
-  (see [Definition 26 here](./resources/dis.pdf#page=19) for details), and
+  (see [Definition 26 here](./resources/dis.pdf#page=27) for details), and
 - $$A_{\mathrm{sig}}(F, G)$$ is the vector of signatures
 $$\sigma(f_e(G))$$.
 
@@ -190,7 +190,7 @@ $$h_r = \prod_{\substack{I \subseteq \{1, \dots, m\},\ \#I = r \\ j
 Its roots are all real, and the number of its positive roots counts
 the pairs $$(I, j)$$ for which $$\prod_{i \in I}(\alpha_i - \beta_j) < 0$$,
 which carries information about where $$\beta_j$$ sits relative to the
-$$\alpha$$'s (see [Lemma 74 here](./resources/dis.pdf#page=65) for details).
+$$\alpha$$'s (see [Lemma 74 here](./resources/dis.pdf#page=73) for details).
 Further, the coefficients of $$h_r$$ are themselves symmetric
 polynomials in $$\alpha$$ and $$\beta$$, so by the fundamental theorem
 of symmetric polynomials they cna be rewritten as polynomials $$D_r$$
@@ -208,7 +208,7 @@ depends only on $$m$$, and
 - $$A_{\mathrm{sym}}$$ is the vector of sign variation counts of the
 $$D_r$$ (the numbers of positive roots, by Descartes' rule of signs).
 
-See [Example 69 here](./resources/dis.pdf#page=60) for a fully worked example.
+See [Example 69 here](./resources/dis.pdf#page=68) for a fully worked example.
 
 This approach is implemented in
 [`ECSymmetry`](https://danielprofili.github.io/software#symmetry).
