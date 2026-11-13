@@ -70,7 +70,7 @@
     <span class="ecp-grp"><span class="ecp-blue">Eigenvalues of <i>G</i>:</span>
       <button type="button" id="ecp-bminus" aria-label="Remove an eigenvalue of G">−</button>
       <button type="button" id="ecp-bplus" aria-label="Add an eigenvalue of G">+</button></span>
-    <button type="button" id="ecp-reset">Reset to Example 83</button>
+    <button type="button" id="ecp-reset">Reset</button>
   </div>
 
   <p id="ecp-eps"></p>
@@ -84,7 +84,7 @@
     </table>
   </div>
 
-  <p>Applying Definition 81:</p>
+  <p>Applying the generalized definition of eigenvalue configuration:</p>
   <div class="ecp-sum ecp-math" id="ecp-sum"></div>
   <p class="ecp-note" id="ecp-note"></p>
 </div>
@@ -312,8 +312,8 @@
 
     var generic = !al.some(function (a) { return be.indexOf(a) !== -1; });
     $('ecp-note').textContent = generic
-      ? 'F and G share no eigenvalues, so every perturbation gives the same configuration and EC(F, G) is just the generic configuration.'
-      : 'F and G share an eigenvalue, so different perturbations give different generic configurations and the average can be fractional.';
+      ? 'F and G share no eigenvalues, so every perturbation gives the same configuration and EC(F, G) is the generic configuration.'
+      : 'F and G share an eigenvalue, so different perturbations give different generic configurations and the average can be rational.';
 
     $('ecp-rminus').disabled = red.length <= 1;  $('ecp-rplus').disabled = red.length >= MAXPTS;
     $('ecp-bminus').disabled = blue.length <= 1; $('ecp-bplus').disabled = blue.length >= MAXPTS;
