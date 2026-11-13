@@ -150,14 +150,14 @@ $$f(\beta_j)$$, and $$f(\beta_j) < 0$$ exactly when $$\alpha_1 <
 \beta_j < \alpha_2$$. 
 In terms of the signature of $$f(G)$$, we therefore have
 
-$$ c_1 = \#(\beta_j \in (\alpha_1, \alpha_2)) = \frac12 (n - \sigma(f(G))) = \frac12 (\sigma(I) - \sigma(f(G))),$$
+$$ c_1 = \#\{\beta_j \in (\alpha_1, \alpha_2)\} = \frac12 (n - \sigma(f(G))) = \frac12 (\sigma(I) - \sigma(f(G))),$$
 
 which corresponds to the first row in the above matrix multiplication.
 
 Similarly, we have $$\beta_j > \alpha_2$$ if and only if both
 $$f(\beta_j) > 0$$ and $$f'(\beta_j) > 0$$. Therefore
 
-$$ c_2 = \# (\beta_j \in (\alpha_2, \infty)) = \frac14 (n +
+$$ c_2 = \# \{\beta_j \in (\alpha_2, \infty)\} = \frac14 (n +
 \sigma(f'(G)) + \sigma(f(G)) + \sigma(f(G) f'(G))),$$
 
 which corresponds to the second row in the above matrix multiplication.
