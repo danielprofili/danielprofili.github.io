@@ -359,4 +359,4 @@ addition, and exponentiation, so if we can think about tropical
 curves, we might be able to speed up resultant computations and avoid
 Groebner basis calculations altogether.
 
-[^1]: The demo tool was made using an LLM.
+[^1]: The demo tool was made by an LLM.
