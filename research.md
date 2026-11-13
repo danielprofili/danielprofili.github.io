@@ -245,7 +245,7 @@ where
 Note that if $$F$$ and $$G$$ are a generic pair, this new definition
 reduces to the old one, so it is truly a generalization.
 
-**Example.** Try it below:
+**Example.**[^1] Try it below:
 
 {% include ec-perturb.html %}
 
@@ -358,3 +358,5 @@ deal with minima and sums than it is to deal with multiplication,
 addition, and exponentiation, so if we can think about tropical
 curves, we might be able to speed up resultant computations and avoid
 Groebner basis calculations altogether.
+
+[^1]: The demo tool was made using an LLM.
