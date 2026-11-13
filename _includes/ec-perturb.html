@@ -1,0 +1,346 @@
+{% raw %}
+<!-- Interactive version of Example 83 (eigenvalue configuration of arbitrary matrices). -->
+<style>
+#ec-perturb { margin: 30px 0; }
+#ec-perturb .ecp-panel {
+  background: #fff; padding: 10px 15px 5px;
+  -webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(5px 5px 5px #222);
+}
+#ec-perturb .ecp-math { font-family: "Latin Modern Roman", "CMU Serif", "Times New Roman", Times, serif; }
+#ec-perturb .ecp-big { font-size: 22px; }
+#ec-perturb svg { display: block; width: 100%; height: auto; }
+#ec-perturb #ecp-main { touch-action: none; user-select: none; -webkit-user-select: none; }
+#ec-perturb .ecp-drag { cursor: grab; }
+#ec-perturb .ecp-drag:active { cursor: grabbing; }
+#ec-perturb .ecp-drag:focus { outline: none; }
+#ec-perturb .ecp-drag:focus circle.ecp-ring { stroke: #2a7ae2; }
+#ec-perturb .ecp-pt { transition: transform .25s ease; }
+#ec-perturb .ecp-pt.ecp-dragging { transition: none; }
+@media (prefers-reduced-motion: reduce) { #ec-perturb .ecp-pt { transition: none; } }
+#ec-perturb .ecp-hint { color: #828282; font-size: 14px; text-align: center; margin: 0 0 5px; }
+#ec-perturb .ecp-values { margin: 25px 0 10px; }
+#ec-perturb .ecp-controls { display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; margin-bottom: 20px; font-size: 14px; }
+#ec-perturb .ecp-controls span.ecp-grp { display: inline-flex; gap: 6px; align-items: center; }
+#ec-perturb button {
+  font: inherit; font-size: 14px; cursor: pointer; color: #2a7ae2;
+  background: transparent; border: 1px solid #e8e8e8; border-radius: 3px; padding: 3px 10px;
+}
+#ec-perturb button:hover:not(:disabled) { border-color: #2a7ae2; }
+#ec-perturb button:disabled { color: #ccc; cursor: default; }
+#ec-perturb .ecp-red { color: #f00; } #ec-perturb .ecp-blue { color: #00f; }
+#ec-perturb table { width: 100%; }
+#ec-perturb table td { vertical-align: middle; }
+#ec-perturb table td.ecp-d { font-family: "Latin Modern Roman", "CMU Serif", "Times New Roman", Times, serif; font-size: 20px; letter-spacing: 2px; white-space: nowrap; }
+#ec-perturb table td.ecp-pic { width: 45%; min-width: 160px; padding-top: 2px; padding-bottom: 2px; }
+#ec-perturb table td.ecp-gec, #ec-perturb table th.ecp-gec { text-align: center; white-space: nowrap; }
+#ec-perturb table td.ecp-gec { font-family: "Latin Modern Roman", "CMU Serif", "Times New Roman", Times, serif; font-size: 19px; }
+#ec-perturb .ecp-scroll { overflow-x: auto; }
+#ec-perturb .ecp-frac { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; line-height: 1.05; font-size: .85em; margin: 0 1px; }
+#ec-perturb .ecp-frac > span:first-child { border-bottom: 1px solid currentColor; padding: 0 2px; }
+#ec-perturb .ecp-sum { font-size: 21px; line-height: 2.2; margin: 15px 0 5px; overflow-x: auto; white-space: nowrap; }
+#ec-perturb .ecp-note { color: #828282; font-size: 14px; }
+@media (max-width: 600px) {
+  #ec-perturb table th, #ec-perturb table td { padding: 4px 6px; }
+  #ec-perturb table td.ecp-d { font-size: 16px; letter-spacing: 0; }
+  #ec-perturb table td.ecp-pic { min-width: 100px; }
+  #ec-perturb table td.ecp-gec { font-size: 16px; }
+  #ec-perturb .ecp-sum { white-space: normal; font-size: 19px; }
+}
+</style>
+
+<div id="ec-perturb">
+  <div class="ecp-panel">
+    <svg id="ecp-main" viewBox="0 0 800 160" role="img" aria-labelledby="ecp-main-desc">
+      <desc id="ecp-main-desc">Eigenvalues of F and G on the real line.</desc>
+      <g id="ecp-ticks"></g>
+      <line id="ecp-axis" x1="15" x2="785" y1="110" y2="110" stroke="#111" stroke-width="1.5"/>
+      <path id="ecp-arrow" fill="none" stroke="#111" stroke-width="1.5"/>
+      <g id="ecp-pts"></g>
+    </svg>
+    <p class="ecp-hint">Drag the points (or select one and use the arrow keys). Points snap to multiples of ½.</p>
+  </div>
+
+  <p class="ecp-values ecp-math ecp-big" id="ecp-values" aria-live="polite"></p>
+
+  <div class="ecp-controls">
+    <span class="ecp-grp"><span class="ecp-red">Eigenvalues of <i>F</i>:</span>
+      <button type="button" id="ecp-rminus" aria-label="Remove an eigenvalue of F">−</button>
+      <button type="button" id="ecp-rplus" aria-label="Add an eigenvalue of F">+</button></span>
+    <span class="ecp-grp"><span class="ecp-blue">Eigenvalues of <i>G</i>:</span>
+      <button type="button" id="ecp-bminus" aria-label="Remove an eigenvalue of G">−</button>
+      <button type="button" id="ecp-bplus" aria-label="Add an eigenvalue of G">+</button></span>
+    <button type="button" id="ecp-reset">Reset to Example 83</button>
+  </div>
+
+  <p id="ecp-eps"></p>
+
+  <div class="ecp-scroll">
+    <table>
+      <thead>
+        <tr><th>\(d\)</th><th>Picture</th><th class="ecp-gec">\(\mathrm{GEC}(F_d, G)\)</th></tr>
+      </thead>
+      <tbody id="ecp-rows"></tbody>
+    </table>
+  </div>
+
+  <p>Applying Definition 81:</p>
+  <div class="ecp-sum ecp-math" id="ecp-sum"></div>
+  <p class="ecp-note" id="ecp-note"></p>
+</div>
+
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var NS = 'http://www.w3.org/2000/svg';
+  var RED = '#f00', BLUE = '#00f', GREY = '#828282', INK = '#111';
+  var SERIF = '"Latin Modern Roman","CMU Serif","Times New Roman",Times,serif';
+  var LO = -2, HI = 4, STEP = 0.5, MAXPTS = 4;
+  var Y = 110, LEVEL = 56;
+
+  var EXAMPLE = { red: [0, 1, 1], blue: [1, 2] };
+  var red, blue;                       // arrays of {id, v}
+  var nextId = 0;
+  var W = 800;
+
+  function el(tag, attrs) {
+    var e = document.createElementNS(NS, tag);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    return e;
+  }
+  function byV(a, b) { return a.v - b.v || a.id - b.id; }
+  function sorted(list) { return list.slice().sort(byV); }
+  function vals(list) { return sorted(list).map(function (p) { return p.v; }); }
+
+  // ---------- number formatting ----------
+  function gcd(a, b) { a = Math.abs(a); b = Math.abs(b); while (b) { var t = b; b = a % b; a = t; } return a || 1; }
+  function num(x) {                    // decimals for positions
+    var s = (Math.round(x * 1000) / 1000).toString();
+    return s.replace('-', '−');
+  }
+  function fracHTML(p, q) {            // p/q as a stacked fraction, reduced
+    var g = gcd(p, q); p /= g; q /= g;
+    if (q === 1) return String(p).replace('-', '−');
+    return '<span class="ecp-frac"><span>' + p + '</span><span>' + q + '</span></span>';
+  }
+  function vec(arr, f) { return '(' + arr.map(f || String).join(', ') + ')'; }
+
+  // ---------- the mathematics ----------
+  // Lemma 86: eps = 1/2 min over i, j of (1 if alpha_i = beta_j, else |alpha_i - beta_j|)
+  function epsilon(al, be) {
+    var m = Infinity;
+    al.forEach(function (a) { be.forEach(function (b) { m = Math.min(m, a === b ? 1 : Math.abs(a - b)); }); });
+    return m / 2;
+  }
+  // generic eigenvalue configuration: c_k = # betas between the k-th and (k+1)-th alpha; c_m = # above the last
+  function gec(al, be) {
+    var a = al.slice().sort(function (x, y) { return x - y; }), m = a.length, c = [];
+    for (var k = 0; k < m; k++) {
+      var hi = k + 1 < m ? a[k + 1] : Infinity;
+      c.push(be.filter(function (b) { return b > a[k] && b < hi; }).length);
+    }
+    return c;
+  }
+  function signs(m) {                  // all d in {-1, 1}^m, in the order - - -, - - +, ...
+    var out = [];
+    for (var t = 0; t < (1 << m); t++) {
+      var d = [];
+      for (var i = m - 1; i >= 0; i--) d.push((t >> i) & 1 ? 1 : -1);
+      out.push(d);
+    }
+    return out;
+  }
+
+  // ---------- drawing a number line ----------
+  // items: [{v, color, label (html), sub}] -> positions with vertical stacking of coincident points
+  function layout(items) {
+    var seen = [];
+    return items.map(function (it) {
+      var level = seen.filter(function (v) { return Math.abs(v - it.v) < 1e-9; }).length;
+      seen.push(it.v);
+      return level;
+    });
+  }
+  function scale(w, pad, lo, hi) {
+    if (lo === undefined) { lo = LO; hi = HI; }
+    return function (v) { return pad + (v - lo) / (hi - lo) * (w - 2 * pad); };
+  }
+
+  function miniPicture(al, be, lo, hi) { // small static picture for a table row, on a common zoomed scale
+    var w = 300, pad = 14, sx = scale(w, pad, lo, hi), y0 = 0;
+    var items = al.map(function (v) { return { v: v, c: RED }; }).concat(be.map(function (v) { return { v: v, c: BLUE }; }));
+    var lv = layout(items), maxL = Math.max.apply(null, lv), r = 5.5, gap = 14;
+    var h = 22 + gap * maxL;
+    y0 = h - 9;
+    var svg = el('svg', { viewBox: '0 0 ' + w + ' ' + h, 'aria-hidden': 'true' });
+    svg.appendChild(el('line', { x1: 4, x2: w - 4, y1: y0, y2: y0, stroke: INK, 'stroke-width': 1 }));
+    items.forEach(function (it, i) {
+      svg.appendChild(el('circle', { cx: sx(it.v), cy: y0 - gap * lv[i], r: r, fill: it.c }));
+    });
+    return svg;
+  }
+
+  // ---------- main interactive line ----------
+  var main = $('ecp-main'), ptsG = $('ecp-pts'), ticksG = $('ecp-ticks');
+  var nodes = {};                      // id -> svg group
+  var sx = scale(800, 40);
+
+  function resize() {
+    var cw = main.parentElement.clientWidth - 30;
+    W = Math.round(Math.min(800, Math.max(300, cw || 800)));
+    sx = scale(W, W < 500 ? 22 : 40);
+    $('ecp-axis').setAttribute('x2', W - 12);
+    $('ecp-arrow').setAttribute('d', 'M' + (W - 22) + ' ' + (Y - 6) + 'L' + (W - 10) + ' ' + Y + 'L' + (W - 22) + ' ' + (Y + 6));
+    ticksG.innerHTML = '';
+    for (var t = LO; t <= HI + 1e-9; t += STEP) {
+      var x = sx(t), whole = Math.abs(t - Math.round(t)) < 1e-9;
+      ticksG.appendChild(el('line', { x1: x, x2: x, y1: Y - (whole ? 5 : 3), y2: Y + (whole ? 5 : 3), stroke: GREY, 'stroke-width': 1 }));
+      if (whole) {
+        var lab = el('text', { x: x, y: Y + 26, 'text-anchor': 'middle', 'font-size': 15, fill: GREY, 'font-family': SERIF });
+        lab.textContent = String(t).replace('-', '−');
+        ticksG.appendChild(lab);
+      }
+    }
+  }
+
+  function makeNode(p, color) {
+    var g = el('g', { 'class': 'ecp-pt ecp-drag', tabindex: 0, role: 'slider',
+      'aria-valuemin': LO, 'aria-valuemax': HI });
+    g.appendChild(el('circle', { 'class': 'ecp-ring', r: 15, fill: 'transparent', stroke: 'transparent', 'stroke-width': 2 }));
+    g.appendChild(el('circle', { r: 10, fill: color }));
+    var t = el('text', { y: -18, 'text-anchor': 'middle', 'font-size': 24, fill: color, 'font-family': SERIF, 'font-style': 'italic' });
+    g.appendChild(t);
+    g._label = t; g._color = color; g._p = p;
+    ptsG.appendChild(g);
+
+    g.addEventListener('pointerdown', function (e) {
+      e.preventDefault(); g.focus(); g.setPointerCapture(e.pointerId);
+      g.classList.add('ecp-dragging');
+      var move = function (ev) {
+        var pt = main.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+        var loc = pt.matrixTransform(main.getScreenCTM().inverse());
+        var v = LO + (loc.x - sx(LO)) / (sx(HI) - sx(LO)) * (HI - LO);
+        v = Math.max(LO, Math.min(HI, Math.round(v / STEP) * STEP));
+        if (v !== p.v) { p.v = v; update(); }
+      };
+      var up = function () {
+        g.classList.remove('ecp-dragging');
+        g.removeEventListener('pointermove', move);
+        g.removeEventListener('pointerup', up);
+        g.removeEventListener('pointercancel', up);
+      };
+      g.addEventListener('pointermove', move);
+      g.addEventListener('pointerup', up);
+      g.addEventListener('pointercancel', up);
+    });
+    g.addEventListener('keydown', function (e) {
+      var dv = { ArrowLeft: -STEP, ArrowDown: -STEP, ArrowRight: STEP, ArrowUp: STEP }[e.key];
+      if (dv === undefined) return;
+      e.preventDefault();
+      p.v = Math.max(LO, Math.min(HI, p.v + dv));
+      update();
+    });
+    return g;
+  }
+
+  function drawMain() {
+    // remove nodes for deleted points
+    var live = {};
+    red.concat(blue).forEach(function (p) { live[p.id] = true; });
+    Object.keys(nodes).forEach(function (id) { if (!live[id]) { nodes[id].remove(); delete nodes[id]; } });
+    red.forEach(function (p) { if (!nodes[p.id]) nodes[p.id] = makeNode(p, RED); });
+    blue.forEach(function (p) { if (!nodes[p.id]) nodes[p.id] = makeNode(p, BLUE); });
+
+    // labels follow sorted order (alpha_1 <= alpha_2 <= ...); reds are stacked below blues
+    var sr = sorted(red), sb = sorted(blue);
+    var items = sr.map(function (p, i) { return { p: p, name: 'α', i: i + 1 }; })
+      .concat(sb.map(function (p, i) { return { p: p, name: 'β', i: i + 1 }; }));
+    var lv = layout(items.map(function (it) { return { v: it.p.v }; }));
+    var maxL = Math.max.apply(null, lv);
+    items.forEach(function (it, k) {
+      var g = nodes[it.p.id];
+      g.style.transform = 'translate(' + sx(it.p.v) + 'px,' + (Y - LEVEL * lv[k]) + 'px)';
+      g._label.innerHTML = it.name + '<tspan font-size="16" dy="6" font-style="normal">' + it.i + '</tspan>';
+      g.setAttribute('aria-label', (it.name === 'α' ? 'Eigenvalue alpha ' : 'Eigenvalue beta ') + it.i);
+      g.setAttribute('aria-valuenow', it.p.v);
+    });
+    var top = Y - LEVEL * maxL - 50;
+    main.setAttribute('viewBox', '0 ' + top + ' ' + W + ' ' + (Y + 40 - top));
+    $('ecp-main-desc').textContent = 'Eigenvalues of F: ' + vals(red).join(', ') + '. Eigenvalues of G: ' + vals(blue).join(', ') + '.';
+  }
+
+  // ---------- table and average ----------
+  function update() {
+    drawMain();
+    var al = vals(red), be = vals(blue), m = al.length;
+    $('ecp-values').innerHTML = '<span class="ecp-red">α</span> = ' + vec(al, num) +
+      ', &nbsp; <span class="ecp-blue">β</span> = ' + vec(be, num);
+
+    var eps = epsilon(al, be);
+    $('ecp-eps').innerHTML = 'By Lemma 86, take <span class="ecp-math ecp-big"><i>ε</i> = ' + num(eps) +
+      '</span>, half of the smallest distance between an eigenvalue of <span class="ecp-red"><i>F</i></span>' +
+      ' and an eigenvalue of <span class="ecp-blue"><i>G</i></span> (a shared eigenvalue counts as distance 1).' +
+      ' For each <i>d</i>, the matrix <i>F<sub>d</sub></i> has eigenvalues <span class="ecp-math"><i>α<sub>i</sub></i> + <i>ε d<sub>i</sub></i></span>.';
+
+    var allv = al.concat(be), lo = Math.min.apply(null, allv) - eps - 0.5, hi = Math.max.apply(null, allv) + eps + 0.5;
+    var rows = $('ecp-rows'); rows.innerHTML = '';
+    var groups = [], keyIndex = {}, total = new Array(m).fill(0);
+    signs(m).forEach(function (d) {
+      var pert = al.map(function (a, i) { return a + eps * d[i]; });
+      var c = gec(pert, be);
+      c.forEach(function (x, i) { total[i] += x; });
+      var key = c.join(',');
+      if (keyIndex[key] === undefined) { keyIndex[key] = groups.length; groups.push({ c: c, n: 0 }); }
+      groups[keyIndex[key]].n++;
+
+      var tr = document.createElement('tr');
+      var td1 = document.createElement('td'); td1.className = 'ecp-d';
+      td1.textContent = d.map(function (s) { return s < 0 ? '−' : '+'; }).join(' ');
+      var td2 = document.createElement('td'); td2.className = 'ecp-pic';
+      td2.appendChild(miniPicture(pert, be, lo, hi));
+      td2.title = 'Eigenvalues of F_d: ' + pert.map(num).join(', ');
+      var td3 = document.createElement('td'); td3.className = 'ecp-gec';
+      td3.textContent = vec(c);
+      tr.appendChild(td1); tr.appendChild(td2); tr.appendChild(td3);
+      rows.appendChild(tr);
+    });
+
+    var N = 1 << m;
+    var terms = groups.map(function (g) { return '<span style="white-space:nowrap">' + (g.n > 1 ? g.n + '&thinsp;·&thinsp;' : '') + vec(g.c) + '</span>'; }).join(' + ');
+    $('ecp-sum').innerHTML = 'EC(<i>F</i>, <i>G</i>) = ' + fracHTML(1, N) + '&thinsp;[ ' + terms + ' ] = <b>' +
+      vec(total, function (t) { return fracHTML(t, N); }) + '</b>';
+
+    var generic = !al.some(function (a) { return be.indexOf(a) !== -1; });
+    $('ecp-note').textContent = generic
+      ? 'F and G share no eigenvalues, so every perturbation gives the same configuration and EC(F, G) is just the generic configuration.'
+      : 'F and G share an eigenvalue, so different perturbations give different generic configurations and the average can be fractional.';
+
+    $('ecp-rminus').disabled = red.length <= 1;  $('ecp-rplus').disabled = red.length >= MAXPTS;
+    $('ecp-bminus').disabled = blue.length <= 1; $('ecp-bplus').disabled = blue.length >= MAXPTS;
+  }
+
+  function freeSpot(list) {
+    var used = list.map(function (p) { return p.v; });
+    for (var v = HI - 1; v >= LO; v -= STEP) if (used.indexOf(v) === -1) return v;
+    return 0;
+  }
+  function reset() {
+    red = EXAMPLE.red.map(function (v) { return { id: nextId++, v: v }; });
+    blue = EXAMPLE.blue.map(function (v) { return { id: nextId++, v: v }; });
+    update();
+  }
+  $('ecp-rplus').addEventListener('click', function () { red.push({ id: nextId++, v: freeSpot(red.concat(blue)) }); update(); });
+  $('ecp-bplus').addEventListener('click', function () { blue.push({ id: nextId++, v: freeSpot(red.concat(blue)) }); update(); });
+  $('ecp-rminus').addEventListener('click', function () { red = sorted(red).slice(0, -1); update(); });
+  $('ecp-bminus').addEventListener('click', function () { blue = sorted(blue).slice(0, -1); update(); });
+  $('ecp-reset').addEventListener('click', reset);
+
+  resize(); reset();
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { var w = W; resize(); if (W !== w) update(); }, 150);
+  });
+})();
+</script>
+{% endraw %}

@@ -219,6 +219,36 @@ fixed, the output grows only linearly in $$n$$; thus, in practice, one
 should choose $$F$$ to be the smaller matrix. Setting $$m=1$$ gives an
 output of size $$n$$, which is exactly Descartes' rule of signs.
 
+### Shared eigenvalues
+
+The above definition for $$\mathrm{EC}$$ breaks down when $$F$$ and
+$$G$$ share an eigenvalue, since any shared eigenvalue will not lie in
+any of the open intervals between $$\alpha$$'s. The key observation is
+that if we have matrices $$F$$ and $$G$$ which share an eigenvalue (in
+the terminology established, the pair is *not generic*), a
+sufficiently small perturbation can produce a new pair of matrices
+which is generic. So a natural definition we can make is to let the
+eigenvalue configuration of non-generic pairs be the *average* over
+all such small perturbations:
+
+$$\mathrm{EC}(F, G) = \frac{1}{2^m} \sum_{d \in \{-1, 1\}^m}
+\mathrm{GEC}(F_d, G),$$
+
+where 
+- $$F_d$$ is a matrix with eigenvalues $$\alpha_i + \varepsilon d_i$$ for
+  sufficiently small $$\varepsilon$$ and $$d_i \in \{-1, 1\}$$
+- $$\mathrm{GEC}$$ denotes the eigenvalue configuration
+  defined in the previous section. We rename it "$$\mathrm{GEC}$$" to
+  emphasize that $$F_d$$ and $$G$$ are *always* generic (for a
+  suitable $$\varepsilon$$).
+
+Note that if $$F$$ and $$G$$ are a generic pair, this new definition
+reduces to the old one, so it is truly a generalization.
+
+**Example.** Try it below:
+
+{% include ec-perturb.html %}
+
 ---
 
 ## Resultant polytopes {#resultant-polytopes}
