@@ -98,7 +98,7 @@
   var LO = -2, HI = 4, STEP = 0.5, MAXPTS = 4;
   var Y = 110, LEVEL = 56;
 
-  var EXAMPLE = { red: [0, 1, 1], blue: [1, 2] };
+  var EXAMPLE = { red: [-1, 1, 1], blue: [1, 2] };
   var red, blue;                       // arrays of {id, v}
   var nextId = 0;
   var W = 800;
@@ -278,7 +278,7 @@
 
     var eps = epsilon(al, be);
     $('ecp-eps').innerHTML = 'By <a href="./resources/dis.pdf#page=92">Lemma 86</a>, take <span class="ecp-math ecp-big"><i>ε</i> = ' + num(eps) +
-      '</span>, half of the smallest distance between an eigenvalue of <span class="ecp-red"><i>F</i></span>' +
+      '</span>, half of the smallest (nonzero) distance between an eigenvalue of <span class="ecp-red"><i>F</i></span>' +
       ' and an eigenvalue of <span class="ecp-blue"><i>G</i></span> (a shared eigenvalue counts as distance 1).' +
       ' For each <i>d</i>, the matrix <i>F<sub>d</sub></i> has eigenvalues <span class="ecp-math"><i>α<sub>i</sub></i> + <i>ε d<sub>i</sub></i></span>.';
 
