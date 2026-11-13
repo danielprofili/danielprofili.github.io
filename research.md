@@ -42,7 +42,7 @@ $$\beta$$'s are blue):
 
 There is one eigenvalue of $$G$$ in $$(\alpha_1, \alpha_2)$$ and one
 in eigenvalue of $$G$$ greater than $$\alpha_2$$.
-Hence, we have $$\mathrm{EC}(F, G) = (1, 1).$$.
+Hence, we have $$\mathrm{EC}(F, G) = (1, 1)$$.
 
 ### The problem
 Suppose now that the entries of $$F$$ and $$G$$ are not simply numbers
@@ -87,10 +87,10 @@ real polynomial is at most the number of sign changes in its
 coefficients, with equality when all the roots are real.
 Take $$F = [0]$$ and
 
-$$G = \begin{bmatrix} 1 & 2 \ 2 & 1 \end{bmatrix}, \qquad g(x) =
-\det(xI - G) = x2 - 2x - 3 = (x + 1)(x - 3).$$
+$$G = \begin{bmatrix} 1 & 2 \\ 2 & 1 \end{bmatrix}, \qquad g(x) =
+\det(xI - G) = x^2 - 2x - 3 = (x + 1)(x - 3).$$
 
-The coefficients of $$g$$ have signs $$(+, -, -)$$, and there is
+The coefficients of $$g$$, in order, have signs $$(+, -, -)$$, and there is
 exactly one sign change. By Descartes' rule of signs, $$G$$ therefore has exactly one positive
 eigenvalue, so $$\mathrm{EC}(F,G) = (1)$$. This example shows that the
 eigenvalue configuration problem generalizes Descartes' rule of signs
@@ -100,7 +100,10 @@ Descartes' rule of signs is itself used widely in many areas of
 science and engineering, so we can expect that a more general result
 will have even wider applicability. For example:
 
-- **Rank updates**. If $$G = F + UCU^T$$ is a rank-$$r$$ update of $$F$$, how do the eigenvalues of $$F$$ move? For $$r = 1$$ the classical result is that the eigenvalues interlace; for larger $$r$$ much less is known.
+- **Rank updates**. If $$G = F + UCU^T$$ is a rank-$$r$$ update of
+  $$F$$, how do the eigenvalues of $$F$$ move? For $$r = 1$$ the
+  classical result is that the eigenvalues interlace, but for larger
+  $$r$$ much less is known.
 - **Network analysis.** If $$F$$ is the adjacency matrix (or
   Laplacian) of a graph, adding or removing edges corresponds to
   low-rank updates of this matrix, and many graph properties are
@@ -111,6 +114,107 @@ will have even wider applicability. For example:
   (for instance, a stability condition) requires that the constraint
   be expressable without quantifiers in terms of the parameters.
 
+### First approach: signature of matrices
+
+The *signature* $$\sigma(M)$$ of a real symmetric matrix $$M$$ is the number of
+positive eigenvalues of $$M$$ minus the number of negative eigenvalues
+of $$M$$.
+
+Let $$f = \det(xI - F)$$ be the characteristic polynomial of $$F$$. 
+For $$e = (e_0, \dots, e_{m-1}) \in \{0,1\}^m$$ define
+
+$$f_e = \left(f^{(0)}\right)^{e_0} \cdots
+\left(f^{(m-1)}\right)^{e_{m-1}},$$
+
+where $$f^{(k)}$$ is the $$k$$-th derivative of $$f$$. Each $$f_e(G)$$ is a
+symmetric matrix whose entries are polynomials in the entries of
+$$F$$ and $$G$$. Our first theorem says that for a generic pair of
+matrices $$F$$ and $$G$$, we have
+
+$$\mathrm{EC}(F, G) = C_{\mathrm{sig}}\, A_{\mathrm{sig}}(F, G),$$
+
+where
+
+- $$C_{\mathrm{sig}}$$ is a rational matrix depending only on $$m$$
+  (see [Definition 26 here](./resources/dis.pdf#page=19) for details), and
+- $$A_{\mathrm{sig}}(F, G)$$ is the vector of signatures
+$$\sigma(f_e(G))$$.
+
+**Example ($$m = 2$$).** Here $$f_{00} = 1$$, $$f_{01} = f'$$, $$f_{10} = f$$
+and $$f_{11} = f f'$$, and
+
+$$\begin{bmatrix} c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} \frac{1}{2} & 0 & -\frac{1}{2} & 0 \\ \frac{1}{4} & \frac{1}{4} & \frac{1}{4} & \frac{1}{4} \end{bmatrix} \begin{bmatrix} \sigma(I) \\ \sigma(f'(G)) \\ \sigma(f(G)) \\ \sigma(f(G)f'(G)) \end{bmatrix}.$$
+
+To see why, note that the eigenvalues of $$f(G)$$ are simply
+$$f(\beta_j)$$, and $$f(\beta_j) < 0$$ exactly when $$\alpha_1 <
+\beta_j < \alpha_2$$. 
+In terms of the signature of $$f(G)$$, we therefore have
+
+$$ c_1 = \#(\beta_j \in (\alpha_1, \alpha_2)) = \frac12 (n - \sigma(f(G))) = \frac12 (\sigma(I) - \sigma(f(G))),$$
+
+which corresponds to the first row in the above matrix multiplication.
+
+Similarly, we have $$\beta_j > \alpha_2$$ if and only if both
+$$f(\beta_j) > 0$$ and $$f'(\beta_j) > 0$$. Therefore
+
+$$ c_2 = \# (\beta_j \in (\alpha_2, \infty)) = \frac14 (n +
+\sigma(f'(G)) + \sigma(f(G)) + \sigma(f(G) f'(G))),$$
+
+which corresponds to the second row in the above matrix multiplication.
+
+Given the example matrices $$F = \begin{bmatrix} 1 & 1 \\ 1 & 3
+\end{bmatrix}, \qquad G = \begin{bmatrix} 2 & -1 \\ -1 & 4
+\end{bmatrix},$$ we have $$f(x) = x^2 - 4x + 2$$, and one can compute
+that $$\sigma(f'(G)) = 0$$, $$\sigma(f(G)) = 0$$ and
+$$\sigma(f(G)f'(G)) = 2$$, so $$c_1 = \frac{1}{2}(2 - 0) = 1$$ and
+$$c_2 = \frac{1}{4}(2 + 0 + 0 + 2) = 1$$, as expected.
+
+The condition (which is the matrix multiplication above) is
+quantifier-free because the signature of a real symmetric matrix can
+be computed directly using Descartes' rule of signs on the
+coefficients of the characteristic polynomials of $$f_e(G)$$. These
+coefficients are themselves polynomials in the parameters, so the
+final condition involves only the parameters and not the eigenvalues.
+This approach is implemented in the Maple script [`ECSignature`](https://danielprofili.github.io/software#signature).
+
+### Second approach: symmetric polynomials
+
+Our second approach solves the same problem, but uses an entirely
+different method. For each $$r = 1, \dots, m$$, consider the
+polynomial
+
+$$h_r = \prod_{\substack{I \subseteq \{1, \dots, m\},\ \#I = r \\ j
+\in \{1, \dots, n\}}} \left( x + \prod_{i \in I} (\alpha_i - \beta_j)
+\right).$$
+
+Its roots are all real, and the number of its positive roots counts
+the pairs $$(I, j)$$ for which $$\prod_{i \in I}(\alpha_i - \beta_j) < 0$$,
+which carries information about where $$\beta_j$$ sits relative to the
+$$\alpha$$'s (see [Lemma 74 here](./dis.pdf#page=65) for details).
+Further, the coefficients of $$h_r$$ are themselves symmetric
+polynomials in $$\alpha$$ and $$\beta$$, so by the fundamental theorem
+of symmetric polynomials they cna be rewritten as polynomials $$D_r$$
+in the coefficients of the characteristic polynomials of $$F$$ and
+$$G$$.
+
+Our second theorem has the same shape as the previous theorem and says
+that
+
+$$\mathrm{EC}(F, G) = C_{\mathrm{sym}}\, A_{\mathrm{sym}}(F, G),$$
+
+where
+- $$C_{\mathrm{sym}}$$ is an $$m \times m$$ rational matrix that again
+depends only on $$m$$, and
+- $$A_{\mathrm{sym}}$$ is the vector of sign variation counts of the
+$$D_r$$ (the numbers of positive roots, by Descartes' rule of signs).
+
+See [Example 69 here](./dis.pdf#page=60) for a fully worked example.
+
+In both approaches, the output has size $$n(2^m - 1)$$ (counting the
+total number of polynomials in the parameters). Note that if $$m$$ is
+fixed, the output grows only linearly in $$n$$; thus, in practice, one
+should choose $$F$$ to be the smaller matrix. Setting $$m=1$$ gives an
+output of size $$n$$, which is exactly Descartes' rule of signs.
 
 ---
 

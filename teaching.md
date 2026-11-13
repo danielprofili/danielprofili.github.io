@@ -1,5 +1,9 @@
 # Teaching
+
+---
+
 ## North Carolina State University
+
 ### Recitation Leader
 - MA 241 Calculus II 
   - Spring 2024
@@ -17,9 +21,3 @@
    - Fall 2017
    - Spring 2018
    - Summer 2018
-
-<!-- I designed and wrote most of the [test case -->
-<!-- compiler](https://github.com/CS1371/homework-compiler/tree/master/TestCaseCompiler), -->
-<!-- a tool used by TAs to create homework problems. I also contributed to -->
-<!-- the [autograder](https://github.com/CS1371/autograder), which we used -->
-<!-- to grade students' homework automatically. -->

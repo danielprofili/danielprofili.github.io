@@ -1,5 +1,7 @@
 # Software
 
+---
+
 <h2 style="font-family: monospace, monospace;"> AISRouteFinder </h2>
 ![Apache
 Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?logo=apachespark&logoColor=fff)
@@ -22,7 +24,7 @@ Maritime traffic graphs have a wide range of applications, including
 route optimization, maritime domain awareness, economic modeling, and more.
 
 <!-- ## `ECSignature` -->
-<h2 style="font-family: monospace, monospace;"> ECSignature </h2>
+<h2 id="signature" style="font-family: monospace, monospace;"> ECSignature </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-signature)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
 <figure class="image">
@@ -52,7 +54,7 @@ real symmetric (or Hermitian) matrices; to list a few:
 - Optimization (Hessian matrices)
 
 <!-- ## `ECSymmetry` -->
-<h2 style="font-family: monospace, monospace;"> ECSymmetry </h2>
+<h2 id="symmetry" style="font-family: monospace, monospace;"> ECSymmetry </h2>
 [![GitHub](https://img.shields.io/badge/GitHub-%23121011.svg?logo=github&logoColor=white)](https://github.com/danielprofili/ec-symmetry)![Maple](https://img.shields.io/badge/Maple-1299FF)
 
 **`ECSymmetry`** is a symbolic computation algorithm which takes as
