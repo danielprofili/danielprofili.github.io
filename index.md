@@ -52,7 +52,7 @@ systems testing software.
 # Talks
 - **AMS Joint Mathematics Meeting** (2026)
 [*Conditions for eigenvalue configurations of two real symmetric
-matrices: a stochastic definition*](./resources/jmm.pdf))
+matrices: a stochastic definition*](./resources/jmm.pdf)
 - **International Symposium on Symbolic and Algebraic Computation**
   (2024)
   Poster: [*Conditions for eigenvalue configurations of two real
