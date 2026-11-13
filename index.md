@@ -11,6 +11,8 @@ I am especially interested in developing mathematical and scientific
 software bridging
 mathematics and interdisciplinary areas so that mathematics can be more accessible.
 
+# Research
+
 My research is about answering the question: when can the qualitative
 properties of a parametrized system be described solely in terms of
 the parameters? In my [PhD dissertation](./resources/dis.pdf) I
@@ -18,16 +20,11 @@ tackled the *eigenvalue configuration problem*: given two parametric real
 symmetric matrices and a desired arrangement of their eigenvalues,
 produce a condition on the parameters so that the eigenvalues are
 arranged in a given way. This problem generalizes Descartes' rule of
-signs.
+signs. 
 
 {% include ec-front.html %}
 
-Feel free to browse my [software
-portfolio](https://danielprofili.github.io/software), see a brief
-explanation of my
-[research](https://danielprofili.github.io/research), or [send me an
-email](https://danielprofili.github.io/contact).
-Thanks for visiting!
+For more information, see the [Research](./research) page.
 
 # Education
 - **North Carolina State University** Ph.D Mathematics (2026)
