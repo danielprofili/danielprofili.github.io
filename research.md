@@ -249,6 +249,11 @@ reduces to the old one, so it is truly a generalization.
 
 {% include ec-perturb.html %}
 
+With this new definition, both theorems from the previous sections
+hold for arbitrary real symmetric matrices with only minor modifications (see
+[here](./resources/dis.pdf#page=91) and
+[here](./resources/dis.pdf#page=102) for details).
+
 ---
 
 ## Resultant polytopes {#resultant-polytopes}
