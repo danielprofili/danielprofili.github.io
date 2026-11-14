@@ -193,8 +193,8 @@
     var shared = be.some(function (b) { return al.indexOf(b) !== -1; });
     var redsMeet = al[0] === al[1];
     var note = '';
-    if (shared) note = 'A blue point sits exactly on a red one, so it is split between the neighboring regions. That’s why the configuration can be fractional. <a href="' + RESEARCH + '">How this works</a>';
-    else if (redsMeet) note = 'The two red points coincide, so the region for c<sub>1</sub> is empty.';
+    if (redsMeet) note = 'The two red points coincide, so the region for c<sub>1</sub> is empty.';
+    if (shared) note += ' A blue point coincides with a red one, so it is split between the neighboring regions. That’s why the configuration can be rational. <a href="' + RESEARCH + '">How this works</a>';
     $('ecf-note').innerHTML = note;
     $('ecf-desc').textContent = 'Red points at ' + al.join(' and ') + ', blue points at ' + be.join(' and ') +
       '. Eigenvalue configuration (' + frac(c[0]) + ', ' + frac(c[1]) + ').';
