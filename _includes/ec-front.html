@@ -68,6 +68,29 @@
     return f ? (w ? String(w) : '') + f : String(w);
   }
 
+  // contribution of each blue point to c1 and c2 (in quarters), averaging over the four ways of nudging the red points
+  function contributions(al, be) {
+    return be.map(function (b) {
+      var q = [0, 0];
+      [-1, 1].forEach(function (d1) { [-1, 1].forEach(function (d2) {
+        var d = [d1, d2], k = 0;
+        al.forEach(function (a, i) { if (a < b || (a === b && d[i] < 0)) k++; });
+        if (k > 0) q[k - 1]++;
+      }); });
+      return q;
+    });
+  }
+  // label "c_t = 1/2 + 1/2 = 1": one term per blue point that contributes, in blue
+  function labelHTML(t, parts) {
+    var terms = parts.filter(function (q) { return q > 0; });
+    var total = parts.reduce(function (a, b) { return a + b; }, 0);
+    var html = 'c<tspan font-size="13" dy="4">' + t + '</tspan><tspan dy="-4"> = </tspan>';
+    if (!terms.length) return html + '<tspan>0</tspan>';
+    html += terms.map(function (q) { return '<tspan fill="#00f">' + frac(q / 4) + '</tspan>'; }).join('<tspan> + </tspan>');
+    if (terms.length > 1) html += '<tspan> = ' + frac(total / 4) + '</tspan>';
+    return html;
+  }
+
   // EC(F, G) for 2 red points, averaging over the four ways of nudging the red points left or right
   function configuration(al, be) {
     var c = [0, 0];
@@ -147,18 +170,24 @@
     blues.forEach(function (p, i) { p.label.innerHTML = 'β<tspan font-size="16" dy="6" font-style="normal">' + (i + 1) + '</tspan>'; p.node.setAttribute('aria-label', 'Blue point beta ' + (i + 1)); p.node.setAttribute('aria-valuenow', p.v); });
     var maxLevel = Math.max.apply(null, placed.map(function (v) { return placed.filter(function (w) { return w === v; }).length - 1; }));
     var top = Y - LEVEL * maxLevel - 52;
-    svg.setAttribute('viewBox', '0 ' + top + ' ' + W + ' ' + (Y + 65 - top));
 
     var c = configuration(al, be);
     var xa1 = sx(al[0]), xa2 = sx(al[1]), yb = Y + 22, xr = W - 18;
     b1.setAttribute('d', 'M' + xa1 + ' ' + (yb - 6) + 'V' + yb + 'H' + xa2 + 'V' + (yb - 6));
     b2.setAttribute('d', 'M' + (xa2 + 3) + ' ' + (yb - 6) + 'V' + yb + 'H' + xr + 'M' + (xr - 7) + ' ' + (yb - 5) + 'L' + xr + ' ' + yb + 'L' + (xr - 7) + ' ' + (yb + 5));
-    var wide = xa2 - xa1 > 60;
-    b1.style.display = l1.style.display = wide ? '' : 'none';
-    l1.innerHTML = 'c<tspan font-size="13" dy="4">1</tspan><tspan dy="-4"> = ' + frac(c[0]) + '</tspan>';
-    l2.innerHTML = 'c<tspan font-size="13" dy="4">2</tspan><tspan dy="-4"> = ' + frac(c[1]) + '</tspan>';
-    l1.style.transform = 'translateX(' + (xa1 + xa2) / 2 + 'px)';
-    l2.style.transform = 'translateX(' + (xa2 + xr) / 2 + 'px)';
+    b1.style.display = xa2 - xa1 > 8 ? '' : 'none';
+    var parts = contributions(al, be);
+    l1.innerHTML = labelHTML(1, parts.map(function (q) { return q[0]; }));
+    l2.innerHTML = labelHTML(2, parts.map(function (q) { return q[1]; }));
+    // center each label under its region, keep it inside the panel, and drop c2 a row if the two would collide
+    var w1 = l1.getComputedTextLength ? l1.getComputedTextLength() : 100;
+    var w2 = l2.getComputedTextLength ? l2.getComputedTextLength() : 100;
+    var clamp = function (x, w) { return Math.max(w / 2 + 6, Math.min(W - w / 2 - 6, x)); };
+    var x1 = clamp((xa1 + xa2) / 2, w1), x2 = clamp((xa2 + xr) / 2, w2);
+    var collide = x1 + w1 / 2 + 12 > x2 - w2 / 2;
+    l1.style.transform = 'translate(' + x1 + 'px,0px)';
+    l2.style.transform = 'translate(' + x2 + 'px,' + (collide ? 24 : 0) + 'px)';
+    svg.setAttribute('viewBox', '0 ' + top + ' ' + W + ' ' + (Y + (collide ? 88 : 65) - top));
 
     $('ecf-ec').textContent = '(' + frac(c[0]) + ', ' + frac(c[1]) + ')';
     var shared = be.some(function (b) { return al.indexOf(b) !== -1; });
